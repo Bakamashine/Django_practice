@@ -1,4 +1,4 @@
-@use 'values' as values;
+@use 'values';
 @use 'mixins';
 @use 'config';
 
@@ -7,7 +7,53 @@
     margin: 0;
 }
 
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
 header {
     background-color: values.$header-background;
-    height: 100px;
+    height: 20px;
+    display: flex;
+    padding: 5px;
+    
+    .header__button {
+        color: white;
+        text-decoration: none;
+        
+        &:hover {
+            border-bottom: 1px solid white;
+        }
+    }
+    
+    .header__modalWindow {
+        background-color: values.$modalWindow-background;
+        padding: 20px;
+        width: 400px;
+        // margin-right: 10px;
+        position: absolute;
+        left: 0px;
+
+    }
+}
+
+.contacts {
+    float: inline-end;
+    padding: 20px;
+    .number {
+        margin-top: 5px;
+        font-weight: bold;
+        font-size: 25px;
+        color: values.$header-background;
+    }
+    .text {
+        @extend .number;
+        font-size: 15px;
+        font-weight: 200;
+
+    }
 }

@@ -3,9 +3,48 @@
   margin: 0;
 }
 
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
 header {
   background-color: #1f1c36;
-  height: 100px;
+  height: 20px;
+  display: flex;
+  padding: 5px;
+}
+header .header__button {
+  color: white;
+  text-decoration: none;
+}
+header .header__button:hover {
+  border-bottom: 1px solid white;
+}
+header .header__modalWindow {
+  background-color: #e3e4e4;
+  padding: 20px;
+  width: 400px;
+  position: absolute;
+  left: 0px;
+}
+
+.contacts {
+  float: inline-end;
+  padding: 20px;
+}
+.contacts .number, .contacts .text {
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 25px;
+  color: #1f1c36;
+}
+.contacts .text {
+  font-size: 15px;
+  font-weight: 200;
 }
 
 /*# sourceMappingURL=main.css.map */
