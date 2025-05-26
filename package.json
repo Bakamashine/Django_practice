@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "sass": "^1.89.0"
+  },
+  "name": "Django_practice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Bakamashine/Django_practice.git",
+  "author": "Bakamashine <surajaaminu09@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "sass main\\static\\scss:main\\static\\css",
+    "dev": "sass --watch main\\static\\scss:main\\static\\css"
+  }
+}

@@ -1,0 +1,13 @@
+@use 'values' as values;
+@use 'mixins';
+@use 'config';
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    background-color: values.$header-background;
+    height: 100px;
+}
