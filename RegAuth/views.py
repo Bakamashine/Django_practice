@@ -9,7 +9,7 @@ from django.views import View
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from RegAuth.models import CustomAbstractUser
-from .decorators import anon_required
+from RegAuth.decorator import anon_required
 from smtplib import SMTPRecipientsRefused, SMTPDataError
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -80,7 +80,7 @@ class CustomRegisterView(AnonRequired, CreateView):
             form.add_error("email", "Такой почты не существует")
             return self.form_invalid(form)
 
-class CustomLogin(AnonRequired, LoginView):
+class CustomLoginView(AnonRequired, LoginView):
     """Переопределённый метод авторизации"""
 
     form_class = LoginForm
@@ -90,7 +90,7 @@ class CustomLogin(AnonRequired, LoginView):
 class CustomLogout(LogoutView):
     """Переопределённый класс Деавторизации"""
 
-    template_name = None
+    template_name = ""
 
     def get_default_redirect_url(self):
         return resolve_url(settings.LOGIN_REDIRECT_URL)
