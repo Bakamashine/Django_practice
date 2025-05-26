@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api.apps.ApiConfig',
     'RegAuth.apps.RegauthConfig',
+    "main.apps.MainConfig"
 ]
 
 MIDDLEWARE = [
