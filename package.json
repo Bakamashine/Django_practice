@@ -12,7 +12,7 @@
   "scripts": {
     "build-css": "sass main\\static\\scss:main\\static\\css",
     "watch-css": "sass --watch main\\static\\scss:main\\static\\css",
-    "dev": "concurrently \"npm run watch-css\" \"vite\"",
+    "dev": "concurrently \"yarn watch-css\" \"vite\"",
     "build": "vite build"
   }
 }
