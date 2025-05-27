@@ -38,10 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'api.apps.ApiConfig',
     'RegAuth.apps.RegauthConfig',
-    "main.apps.MainConfig"
+    "main.apps.MainConfig",
+    'django_vite',
 ]
+
+DJANGO_VITE_DEV_MODE = True
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -127,8 +130,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
+    BASE_DIR / "assets",
 ]
-
+STATIC_ROOT = path.join(BASE_DIR, 'staticfiles')
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
