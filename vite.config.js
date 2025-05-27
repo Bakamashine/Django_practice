@@ -1,9 +1,8 @@
 import { defineConfig } from 'vite'
 import path from 'path'
-import djangoVite from 'django-vite'
 
 export default defineConfig({
-  base: '/static/',
+  // base: '/static/',
   build: {
     outDir: 'static/dist',
     manifest: true,
