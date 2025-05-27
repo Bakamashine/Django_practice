@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django_vite',
 ]
 
-DJANGO_VITE_DEV_MODE = True
+DJANGO_VITE_DEV_MODE = DEBUG
+VITE_MANIFEST_PATH = BASE_DIR / 'static' / 'dist' / 'manifest.json'
 
 
 MIDDLEWARE = [
