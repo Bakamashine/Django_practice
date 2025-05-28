@@ -7,7 +7,7 @@ name = "pypi"
 django = "*"
 pillow = "*"
 tzdata = "*"
-djago-vite = "*"
+django-vite = "*"
 
 [dev-packages]
 
