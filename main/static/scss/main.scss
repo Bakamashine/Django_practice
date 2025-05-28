@@ -66,6 +66,7 @@ header {
     }
 }
 
+
 main {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -73,10 +74,13 @@ main {
     @include mixins.marginCenter;
     height: 1000px;
     width: 66.6%;
+    display: grid;
+    gap: 20px;
+
 
     .news {
         background-color: values.$news-background;
-        padding: 10px;
+        padding: values.$standart_padding;
         @include mixins.flexBetweenSpace;
 
         h1, h2, h3, h4, h5 {
@@ -90,6 +94,23 @@ main {
             display: -webkit-box; 
             -webkit-box-orient: vertical; 
             overflow: hidden; 
+        }
+    }
+
+    .about_us {
+        background-color: values.$about_us-background;
+        padding: values.$standart_padding;
+        
+        h1, h2, h3, h4, h5 {
+            color: white;
+        }
+
+        p {
+            color: white;
+        }
+
+        a {
+            color: white;
         }
     }
 }
