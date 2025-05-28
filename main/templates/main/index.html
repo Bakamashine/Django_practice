@@ -3,5 +3,19 @@
 {% block title %}Главная страница{% endblock title %}
 
 {% block content %}
-    123
+    <div class="news">
+        <div>
+            <h4>НОВОСТИ</h4>
+            <a href="">архив новостей</a>
+        </div>
+        {% for one_news in news %}
+            <div class="one_news">
+                <p>{{ one_news.date }}</p>
+                <div class="text">
+                    <p>{{ one_news.text }}</p>
+                </div>
+                <a href="" class="">подробнее</a>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock content %}

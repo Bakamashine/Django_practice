@@ -49,6 +49,10 @@
 
         </header>
 
+        <div class="post_header">
+            <div>
+                <img src="{% static "img/borchim.png" %}" alt="logo">
+            </div>
         <div class="contacts">
            <p class="text">КОНТАКТНЫЙ ТЕЛЕФОН</p> 
            <p class="number">8-47354-6-05-14</p>
@@ -57,7 +61,10 @@
 КРУГЛОСУТОЧНО</p>
            <p class="number">8-800-234-78-28</p>
         </div>
+    </div>
 
-        {% block content %}{% endblock content %}
+        <main>
+            {% block content %}{% endblock content %}
+        </main>
     </body>
 </html>
