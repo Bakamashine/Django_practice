@@ -10,3 +10,6 @@ def about_us(req):
 
 def contacts(req):
     return render(req, 'main/contacts.html')
+
+def test(req):
+    return render(req, 'main/test.html')
