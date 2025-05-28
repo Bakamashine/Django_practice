@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'RegAuth.apps.RegauthConfig',
     "main.apps.MainConfig",
     'django_vite',
+    'products.apps.ProductsConfig'
 ]
 
 DJANGO_VITE_DEV_MODE = True

@@ -1,6 +1,7 @@
 from django.contrib import admin
 from main.models import News, Images
 
+
 # admin.site.register(News)
 # admin.site.register(Images)
 
