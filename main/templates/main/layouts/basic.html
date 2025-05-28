@@ -33,22 +33,41 @@
             </div>
             <div id="menu-button">
                 <a class="header__button" onclick="">Контакты</a>
-                <div id="menu-modalwindow" class="header__modalWindow hidden">456</div>
+                <div id="menu-modalwindow" class="header__modalWindow hidden">
+                    <p>
+                        АО «БОРХИММАШ»
+                        397164, Воронежская обл.,
+                        г. Борисоглебск, ул. Проходная, 4А
+                    </p>
+                    <p>
+                        Тел.: (8888) 8-88-88
+                        Факс: (8888) 8-88-88, 8-88-88, 8-88-88
+                    </p>
+                    <p>
+                        «Горячая линия» круглосуточной технической поддержки 8-888-888-88-88
+                        ГК «Лимонте»
+                    </p>
+                    <p>
+                        Тел.: (888) 888-88-88
+                        Факс: (888) 888-88-88
+                    </p>
+                    <a href="{% url "contacts" %}">Перейти на страницу контактов</a>
+                </div>
             </div>
         </header>
         <div class="post_header">
             <div>
-                <img src="{% static "img/borchim.png" %}" alt="logo">
+                <img width="auto" height="auto" src="{% static "img/borchim.png" %}" alt="logo">
             </div>
             <div class="contacts">
                 <p class="text">КОНТАКТНЫЙ ТЕЛЕФОН</p>
-                <p class="number">8-47354-6-05-14</p>
-                <p class="number">8-47354-6-05-14</p>
+                <p class="number">888-888-88-88</p>
+                <p class="number">888-888-88-88</p>
                 <p class="text">
                     ТЕХНИЧЕСКАЯ ПОДДЕРЖКА
                     КРУГЛОСУТОЧНО
                 </p>
-                <p class="number">8-800-234-78-28</p>
+                <p class="number">888-888-88-88</p>
             </div>
         </div>
         <main>

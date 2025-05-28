@@ -135,6 +135,24 @@ main {
         padding-top: 20px;
         .text {
             width: 70%;
+            line-height: 18px;
+            font-size: 13px;
+        }
+    }
+
+    .contacts-page {
+        // @include mixins.flexBetweenSpace;
+        color: white;
+        .one {
+            background-color:  values.$header-background;
+            padding: values.$standart_padding;
+            line-height: 18px;
+            font-size: 13px;
+        }
+
+        .procherk {
+            height: 100px;
+            background-color: yellow;
         }
     }
 }

@@ -122,6 +122,21 @@ main .info {
 }
 main .info .text {
   width: 70%;
+  line-height: 18px;
+  font-size: 13px;
+}
+main .contacts-page {
+  color: white;
+}
+main .contacts-page .one {
+  background-color: #1f1c36;
+  padding: 10px;
+  line-height: 18px;
+  font-size: 13px;
+}
+main .contacts-page .procherk {
+  height: 100px;
+  background-color: yellow;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -7,3 +7,6 @@ def index(req):
 
 def about_us(req):
     return render(req, 'main/about_us.html')
+
+def contacts(req):
+    return render(req, 'main/contacts.html')
