@@ -21,6 +21,7 @@ header .header__button {
   color: white;
   text-decoration: none;
   margin-right: 10px;
+  cursor: pointer;
 }
 header .header__button:hover {
   border-bottom: 1px solid white;
@@ -75,7 +76,11 @@ main .news {
   display: flex;
   justify-content: space-between;
 }
-main .news h1, main .news h2, main .news h3, main .news h4, main .news h5 {
+main .news h1,
+main .news h2,
+main .news h3,
+main .news h4,
+main .news h5 {
   color: #909193;
 }
 main .news .text {
@@ -90,14 +95,33 @@ main .about_us {
   background-color: #1f1c36;
   padding: 10px;
 }
-main .about_us h1, main .about_us h2, main .about_us h3, main .about_us h4, main .about_us h5 {
-  color: white;
-}
-main .about_us p {
-  color: white;
-}
+main .about_us h1,
+main .about_us h2,
+main .about_us h3,
+main .about_us h4,
+main .about_us h5,
+main .about_us p,
 main .about_us a {
   color: white;
+}
+main .about_us_page button {
+  width: 100%;
+  background-color: yellow;
+}
+main .about_us_page .spoiler {
+  padding-top: 50px;
+}
+main .about_us_page .spoiler__main {
+  border-radius: 0px !important;
+  border: none !important;
+}
+main .info {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+main .info .text {
+  width: 70%;
 }
 
 /*# sourceMappingURL=main.css.map */

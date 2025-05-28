@@ -25,6 +25,7 @@ header {
         color: white;
         text-decoration: none;
         margin-right: 10px;
+        cursor: pointer;
 
         &:hover {
             border-bottom: 1px solid white;
@@ -66,7 +67,6 @@ header {
     }
 }
 
-
 main {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -77,40 +77,64 @@ main {
     display: grid;
     gap: 20px;
 
-
     .news {
         background-color: values.$news-background;
         padding: values.$standart_padding;
         @include mixins.flexBetweenSpace;
 
-        h1, h2, h3, h4, h5 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
             color: values.$news-color;
         }
 
         .text {
             width: 200px;
-            margin: 0; 
-            -webkit-line-clamp: 3; 
-            display: -webkit-box; 
-            -webkit-box-orient: vertical; 
-            overflow: hidden; 
+            margin: 0;
+            -webkit-line-clamp: 3;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
     }
 
     .about_us {
         background-color: values.$about_us-background;
         padding: values.$standart_padding;
-        
-        h1, h2, h3, h4, h5 {
-            color: white;
-        }
 
-        p {
-            color: white;
-        }
-
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        p,
         a {
             color: white;
+        }
+    }
+
+    .about_us_page {
+        button {
+            width: 100%;
+            background-color: yellow;
+        }
+        .spoiler {
+            padding-top: 50px;
+        }
+
+        .spoiler__main {
+            border-radius: 0px !important;
+            border: none !important;
+        }
+    }
+
+    .info {
+        @include mixins.flexBetweenSpace;
+        padding-top: 20px;
+        .text {
+            width: 70%;
         }
     }
 }
