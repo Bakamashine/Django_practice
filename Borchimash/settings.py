@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'RegAuth.apps.RegauthConfig',
     "main.apps.MainConfig",
     'django_vite',
+    'products.apps.ProductsConfig',
+    'news.apps.NewsConfig',
 ]
 
 DJANGO_VITE_DEV_MODE = DEBUG

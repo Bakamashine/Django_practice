@@ -1,0 +1,51 @@
+{% extends "main/layouts/basic.html" %}
+{% load static %}
+{% block title %}
+    Контакты
+{% endblock title %}
+{% block content %}
+    <div class="contacts-page">
+        <div class="one">
+            <p>
+                АДРЕС:
+                397164, Воронежская область,
+                г. Борисоглебск, ул. Проходная, дом 4А
+            </p>
+            <p>
+                ТЕЛЕФОН:
+                (8888) 8-88-88
+                (8888) 8-88-88
+                ТЕЛЕФОН / ФАКС:
+                (8888) 8-88-88, 8-88-88, 8-88-88
+            </p>
+            <p>
+                ЭЛЕКТРОННАЯ ПОЧТА:
+                info@bhm.ru
+                «Горячая линия» круглосуточной технической поддержки
+                8-800-234-78-28
+            </p>
+            <p>
+                Отдел кадров
+                8 (8888) 8-88-88, 8-88-88, 8-88-88
+                otdelkadrov@bhm.ru
+            </p>
+            <p>
+                РЕКВИЗИТЫ:
+                р/с 888 888 888 888 888 88 888
+                к/с 888 888 888 888 888 88 888
+                ПАО АКБ "Металлинвестбанк" г. Москва
+                ОКОНХ 14181
+                ОКПО 00218880
+                ИНН 3604001059
+                КПП 360401001
+            </p>
+        </div>
+
+        <div class="procherk">
+        </div>
+    </div>
+    <div class="map"></div>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=9b766599-e98b-4f2c-975b-00e6d35c7ae0"
+            type="text/javascript"></script>
+    <script src="{% static "js/map.js" %}"></script>
+{% endblock content %}

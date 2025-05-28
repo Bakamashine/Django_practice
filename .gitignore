@@ -6,3 +6,7 @@ staticfiles/*
 *.glft
 *.jt
 *.slt
+migration
+migrations
+migrations/*
+__pycache__
