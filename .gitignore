@@ -2,3 +2,7 @@ db.sqlite3
 node_modules
 media/*
 staticfiles/*
+migration
+migrations
+migrations/*
+__pycache__
