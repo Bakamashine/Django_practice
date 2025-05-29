@@ -14,7 +14,7 @@ from django.utils.translation import gettext_lazy as _
 
 # INPUT_STYLES = "mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500"
 # Стили для полей ввода
-INPUT_STYLES = "input1"
+INPUT_STYLES = "form-control"
 
 
 class RegisterForm(UserCreationForm):

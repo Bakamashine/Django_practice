@@ -15,6 +15,7 @@ header {
   background-color: #1f1c36;
   height: 35px;
   display: flex;
+  justify-content: space-between;
   padding: 5px;
 }
 header .header__button {

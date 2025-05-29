@@ -14,7 +14,8 @@ from smtplib import SMTPRecipientsRefused, SMTPDataError
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.conf import settings
-from django.http import Http404
+from django.http import Http404, HttpResponse
+from django.contrib.auth import login
 
 
 class SendEmail:
@@ -52,8 +53,7 @@ class AnonRequired(View):
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             return redirect(settings.LOGIN_REDIRECT_URL)
-        else:
-            return super().dispatch(request, *args, **kwargs)
+        return super().dispatch(request, *args, **kwargs)
 
 
 class CustomRegisterView(AnonRequired, CreateView):
@@ -63,22 +63,18 @@ class CustomRegisterView(AnonRequired, CreateView):
     template_name = "RegAuth/register.html"
 
     def form_valid(self, form):
+        user: CustomAbstractUser = form.save()
         try:
-            user: CustomAbstractUser = form.save()
             user.token = default_token_generator.make_token(user)
             user.save()
             mail = SendEmail(user=user)
             mail.send_active_email()
-
             return redirect("acceptEmail")
-        # except SMTPRecipientsRefused:
-        #     user.delete()
-        #     form.add_error("email", "Такой почты не существует")
-        #     return self.form_invalid(form)
         except SMTPDataError:
             user.delete()
             form.add_error("email", "Такой почты не существует")
             return self.form_invalid(form)
+
 
 class CustomLoginView(AnonRequired, LoginView):
     """Переопределённый метод авторизации"""
@@ -96,58 +92,22 @@ class CustomLogout(LogoutView):
         return resolve_url(settings.LOGIN_REDIRECT_URL)
 
 
-# @anon_required
-# def accept_email(request, username, email, password):
-#     """
-#     Страница для подтверждения электронной почты
-#     (ввод данных с письма)
-#     """
-
-#     form = AcceptEmail()
-#     mycode = CODE
-#     hash_code = hash_string(CODE)
-
-#     return render(
-#         request,
-#         "RegAuth/acceptEmail.html",
-#         {
-#             "form": form,
-#             "code": mycode,
-#             "code_hashed": hash_code,
-#             "username": username,
-#             "email": email,
-#             "password": password,
-#         },
-#     )
-
-
-# @anon_required
-# def accept_email2(request, code: str, username, email, password):
-#     if request.method == "GET":
-#         mycode = hash_string(request.GET.get("code"))
-#         if mycode == code:
-#             user = CustomAbstractUser(username=username, email=email, password=password)
-#             user.is_active = True
-#             user.save()
-
-#             login(request, user)
-#             return redirect("main")
-#     return HttpResponse(404)
-
-
 @anon_required
 def accept_email(request):
+    """Простой вывод о том, что сообщение было отправлено"""
     return render(request, "RegAuth/acceptEmail.html")
 
 
 @anon_required
 def accept_email2(request, token, uid):
-    if request.method == "GET":
-        id = urlsafe_base64_decode(uid)
+    """Активация пользователя"""
+    id = urlsafe_base64_decode(uid)
+    try:
         user = CustomAbstractUser.objects.get(pk=id)
         if token == user.token:
             user.is_active = True
             user.save()
+            login(request, user)
             return redirect("main")
-        else:
-            return Http404("Такого пользователя не существует")
+    except CustomAbstractUser.DoesNotExist:
+        return Http404("Такого пользователя не существует")

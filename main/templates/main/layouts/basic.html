@@ -53,6 +53,20 @@
                     <a href="{% url "contacts" %}">Перейти на страницу контактов</a>
                 </div>
             </div>
+            {% if user.is_authenticated %}
+                <div>
+                    <form method="post" action="{% url "logout" %}">
+                        <button class="header__button">Выход</button>
+                    </form>
+                </div>
+            {% else %}
+                <div>
+                    <a href="{% url "register" %}" class="header__button">Регистрация</a>
+                </div>
+                <div>
+                    <a href="" class="header__button">Авторизация</a>
+                </div>
+            {% endif %}
         </header>
         <div class="post_header">
             <div>

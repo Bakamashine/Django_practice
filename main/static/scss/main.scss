@@ -18,7 +18,7 @@
 header {
     background-color: values.$header-background;
     height: 35px;
-    display: flex;
+    @include mixins.flexBetweenSpace;
     padding: 5px;
 
     .header__button {
