@@ -1,16 +1,16 @@
 {% load django_vite %}
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>three.js webgl - geometry - text</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<link type="text/css" rel="stylesheet" href="{% static "css/two.css" %}">
+<html lang="ru">
+    <head>
+        <title>three.js webgl - geometry - text</title>
+        <meta charset="utf-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="{% static "css/two.css" %}">
         {% vite_hmr_client %}
-		{% vite_asset 'assets/test.js' %}
-	</head>
-	<body>
-
+        {% vite_asset 'assets/test.js' %}
+    </head>
+    <body>
 	</body>
 </html>
