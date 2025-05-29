@@ -157,7 +157,11 @@ main .category_page .category .category_image {
 }
 main .category_page .category .category_name {
   margin-top: 5px;
+  color: black;
   text-decoration: underline;
+}
+main .category_page .category .category_name:hover {
+  text-decoration: none;
 }
 main .news_detail_page {
   display: flex;

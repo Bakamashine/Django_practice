@@ -179,7 +179,11 @@ main {
             }
             .category_name {
                 margin-top: 5px;
+                color: black;
                 text-decoration: underline;
+                &:hover {
+                    text-decoration: none
+                }
             }
         }
     }
