@@ -1,3 +1,4 @@
+from typing import Any
 from django.db import models
 
 class News(models.Model):
@@ -23,3 +24,7 @@ class Images(models.Model):
     class Meta:
         verbose_name = "Картинка"
         verbose_name_plural = "Картинки"
+
+    def delete(self, using: Any = ..., keep_parents = ...) -> tuple[int, dict[str, int]]:
+        self.image.delete()
+        return super().delete(using, keep_parents)
