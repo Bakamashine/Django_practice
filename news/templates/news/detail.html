@@ -8,7 +8,7 @@
         <section class="news_detail_page__left">
             <h2>ПОКАЗАТЬ НОВОСТИ ЗА</h2>
             {% for year in years %}
-                <p>{{ year }}</p>
+                <a href="{% url "year" year %}">{{ year }}</a>
             {% endfor %}
         </section>
         <section class="news_detail_page__right">

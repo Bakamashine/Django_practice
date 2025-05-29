@@ -24,3 +24,7 @@ def detail(req: HttpRequest, one_news: int):
         
 
     return render(req, "news/detail.html", {"one_news": news, "images": images, "years": years})
+
+def year(req: HttpRequest, year: int):
+    # news = News.objects.filter(date=)
+    return render(req, 'news/year.html')
