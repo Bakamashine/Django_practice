@@ -14,9 +14,8 @@ class News(models.Model):
         verbose_name = "Новость"
         verbose_name_plural = "Новости"
 
-
 class Images(models.Model):
-    news = models.ForeignKey(News, on_delete=models.CASCADE)
+    news = models.ForeignKey(News, on_delete=models.CASCADE, related_name="images")
     image = models.ImageField(
         upload_to="news/",
         help_text="Картинки",

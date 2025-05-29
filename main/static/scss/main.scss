@@ -98,6 +98,12 @@ main {
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
+
+        .one_news {
+            .one_news_date {
+                color: values.$color_value1;
+            }
+        }
     }
 
     .about_us {
@@ -164,9 +170,7 @@ main {
         gap: 10px;
         justify-content: space-around;
 
-
         .category {
-
             .category_image {
                 width: $image_size;
             }
@@ -177,4 +181,22 @@ main {
             }
         }
     }
+
+    .news_detail_page {
+        @include mixins.flexBetweenSpace;
+        .news_detail_page__left {
+            width: 20%;
+        }
+
+        .news_detail_page__right {
+            width: 70%;
+
+            .carousel_size {
+                width: 70%;
+                @include mixins.marginCenter;
+            }
+        }
+
+    }
+
 }

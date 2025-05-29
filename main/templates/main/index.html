@@ -10,11 +10,11 @@
         </div>
         {% for one_news in news %}
             <div class="one_news">
-                <p>{{ one_news.date }}</p>
+                <p class="one_news_date">{{ one_news.date }}</p>
                 <div class="text">
                     <p>{{ one_news.text }}</p>
                 </div>
-                <a href="">подробнее</a>
+                <a href="{% url "news_detail" one_news.id %}">подробнее</a>
             </div>
         {% endfor %}
     </div>

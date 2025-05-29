@@ -12,5 +12,6 @@ def index(req: HttpRequest):
 def product(req: HttpRequest, category: int):
     products = Product.objects.filter(category=category)
     category_name = Category.objects.get(pk=category)
-    return render(req, 'products/products/product.html', {"title": category_name, "products": products})
+
+    return render(req, 'products/products/product.html', {"title": category_name, "products": products,})
         

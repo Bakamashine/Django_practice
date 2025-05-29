@@ -1,0 +1,56 @@
+{% extends "main/layouts/basic.html" %}
+{% load static %}
+{% block title %}
+    {{ one_news.title }}
+{% endblock title %}
+{% block content %}
+    <div class="news_detail_page">
+        <section class="news_detail_page__left">
+            <h2>ПОКАЗАТЬ НОВОСТИ ЗА</h2>
+            {% for year in years %}
+                <p>{{ year }}</p>
+            {% endfor %}
+        </section>
+        <section class="news_detail_page__right">
+            <p>{{ one_news.date }}</p>
+            <p>{{ one_news.title }}</p>
+            <p>{{ one_news.text }}</p>
+            {% if images|length > 0 %}
+                <div class="carousel_size">
+                    <div id="carouselExampleInterval"
+                         class="carousel slide"
+                         data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            {% for image in images %}
+                                <div class="carousel-item {% if forloop.first %}active{% endif %}"
+                                     data-bs-interval="2000">
+                                    <img width="auto"
+                                         height="auto"
+                                         src="{{ image.image.url }}"
+                                         class="d-block w-100"
+                                         alt="Фото">
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <button class="carousel-control-prev"
+                                type="button"
+                                data-bs-target="#carouselExampleInterval"
+                                data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden"></span>
+                        </button>
+                        <button class="carousel-control-next"
+                                type="button"
+                                data-bs-target="#carouselExampleInterval"
+                                data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden"></span>
+                        </button>
+                    </div>
+                </div>
+            {% else %}
+                <p class="text-center">Фотографий нет</p>
+            {% endif %}
+        </div>
+    </section>
+{% endblock content %}

@@ -91,6 +91,9 @@ main .news .text {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+main .news .one_news .one_news_date {
+  color: #031f73;
+}
 main .about_us {
   background-color: #1f1c36;
   padding: 10px;
@@ -151,6 +154,21 @@ main .category_page .category .category_name {
   margin-top: 5px;
   text-align: center;
   text-decoration: underline;
+}
+main .news_detail_page {
+  display: flex;
+  justify-content: space-between;
+}
+main .news_detail_page .news_detail_page__left {
+  width: 20%;
+}
+main .news_detail_page .news_detail_page__right {
+  width: 70%;
+}
+main .news_detail_page .news_detail_page__right .carousel_size {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*# sourceMappingURL=main.css.map */
