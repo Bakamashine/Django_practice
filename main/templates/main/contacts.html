@@ -44,8 +44,17 @@
         <div class="procherk">
         </div>
     </div>
-    <div class="map"></div>
+    <h3 class="text-center">Вы можете найти нас здесь: </h3>
+
+    <style>
+        #map {
+            height: 500px;
+        }
+    </style>
+
+    <div id="map"></div>
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=9b766599-e98b-4f2c-975b-00e6d35c7ae0"
             type="text/javascript"></script>
     <script src="{% static "js/map.js" %}"></script>
+
 {% endblock content %}
