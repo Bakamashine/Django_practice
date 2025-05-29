@@ -94,7 +94,7 @@ main {
         .text {
             width: 200px;
             margin: 0;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 2;
             display: -webkit-box;
             -webkit-box-orient: vertical;
             overflow: hidden;
@@ -170,14 +170,15 @@ main {
         grid-template-columns: repeat(3, $image_size);
         gap: 10px;
         justify-content: space-around;
+        height: 500px;
 
         .category {
+            text-align: center;
             .category_image {
                 width: $image_size;
             }
             .category_name {
                 margin-top: 5px;
-                text-align: center;
                 text-decoration: underline;
             }
         }
