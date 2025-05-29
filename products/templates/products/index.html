@@ -3,6 +3,8 @@
     Категории
 {% endblock title %}
 {% block content %}
+    <div>
+    {% if categories|length > 0 %}
     <div class="category_page">
         {% for category in categories %}
             <div class="category">
@@ -14,5 +16,14 @@
                 <a class="category_name" href="{% url "products" category.id %}">{{ category.name }}</a>
             </div>
         {% endfor %}
+    
+    </div>
+
+        <div class="pag">
+            {% include "main/layouts/paginator.html" %}
+        </div>
+        {% else %}
+        <p class="text-center">Категории отсуствуют</p>
+        {% endif %}
     </div>
 {% endblock content %}

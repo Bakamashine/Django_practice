@@ -11,6 +11,12 @@
   display: block;
 }
 
+.pag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 header {
   background-color: #1f1c36;
   height: 35px;

@@ -15,6 +15,10 @@
     display: block;
 }
 
+.pag {
+    @include mixins.flexCenter
+}
+
 header {
     background-color: values.$header-background;
     height: 35px;
