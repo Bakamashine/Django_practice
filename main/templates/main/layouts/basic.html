@@ -55,16 +55,21 @@
             </div>
             {% if user.is_authenticated %}
                 <div>
-                    <form method="post" action="{% url "logout" %}">
-                        <button class="header__button">Выход</button>
+                    <form id="logout-form"
+                          method="post"
+                          action="{% url 'logout' %}"
+                          class="hidden">
+                        {% csrf_token %}
                     </form>
+                    <a class="header__button"
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Выход</a>
                 </div>
             {% else %}
                 <div>
                     <a href="{% url "register" %}" class="header__button">Регистрация</a>
                 </div>
                 <div>
-                    <a href="" class="header__button">Авторизация</a>
+                    <a href="{% url "login" %}" class="header__button">Авторизация</a>
                 </div>
             {% endif %}
         </header>
