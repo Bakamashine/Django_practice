@@ -3,5 +3,16 @@
     Категории
 {% endblock title %}
 {% block content %}
-    
+    <div class="category_page">
+        {% for category in categories %}
+            <div class="category">
+                <img class="category_image"
+                     width="auto"
+                     height="180"
+                     src="{{ category.img.url }}"
+                     alt="Фото" />
+                <a class="category_name" href="{% url "products" category.id %}">{{ category.name }}</a>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock content %}

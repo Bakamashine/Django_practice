@@ -144,7 +144,7 @@ main {
         // @include mixins.flexBetweenSpace;
         color: white;
         .one {
-            background-color:  values.$header-background;
+            background-color: values.$header-background;
             padding: values.$standart_padding;
             line-height: 18px;
             font-size: 13px;
@@ -153,6 +153,28 @@ main {
         .procherk {
             height: 100px;
             background-color: yellow;
+        }
+    }
+
+    $image_size: 360px;
+
+    .category_page {
+        display: grid;
+        grid-template-columns: repeat(3, $image_size);
+        gap: 10px;
+        justify-content: space-around;
+
+
+        .category {
+
+            .category_image {
+                width: $image_size;
+            }
+            .category_name {
+                margin-top: 5px;
+                text-align: center;
+                text-decoration: underline;
+            }
         }
     }
 }

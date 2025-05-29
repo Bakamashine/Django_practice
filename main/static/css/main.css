@@ -138,5 +138,19 @@ main .contacts-page .procherk {
   height: 100px;
   background-color: yellow;
 }
+main .category_page {
+  display: grid;
+  grid-template-columns: repeat(3, 360px);
+  gap: 10px;
+  justify-content: space-around;
+}
+main .category_page .category .category_image {
+  width: 360px;
+}
+main .category_page .category .category_name {
+  margin-top: 5px;
+  text-align: center;
+  text-decoration: underline;
+}
 
 /*# sourceMappingURL=main.css.map */
