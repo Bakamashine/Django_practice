@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'RegAuth.apps.RegauthConfig',
     "main.apps.MainConfig",
     'django_vite',
+    'django_cleanup',
     'products.apps.ProductsConfig',
     'news.apps.NewsConfig',
 ]

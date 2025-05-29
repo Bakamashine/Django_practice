@@ -9,6 +9,7 @@ pillow = "*"
 tzdata = "*"
 django-vite = "*"
 djlint = "*"
+django-cleanup = "*"
 
 [dev-packages]
 
