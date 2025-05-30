@@ -28,7 +28,7 @@ class Feedback(models.Model):
 class Forms(models.Model):
     formats = ["docx", "doc", "xml", "xslx", "pdf"]
     title = models.CharField(verbose_name="Дайте название файла")
-    text = models.TextField(verbose_name="Заполните описанием", max_length=20)
+    text = models.TextField(verbose_name="Заполните описанием", max_length=200)
     file = models.FileField(
         verbose_name="Загрузите файл",
         upload_to="forms/",

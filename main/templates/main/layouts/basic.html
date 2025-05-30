@@ -24,7 +24,12 @@
         <header>
             <div id="menu-button">
                 <a class="header__button"  onclick="">Бланки заказа</a>
-                <div id="menu-modalwindow" class="header__modalWindow hidden">123</div>
+                <div id="menu-modalwindow" class="header__modalWindow hidden">
+                    {% for document_form in document_forms %}
+                        <a href="{{ document_form.file.url }}">{{ document_form.title }}</a>
+                        <p>{{ document_form.text }}</p>
+                    {% endfor %}
+                </div>
             </div>
             <div id="menu-button">
                 <a class="header__button" onclick="">Контакты</a>

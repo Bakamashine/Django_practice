@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.http import HttpRequest
-from main.models import Feedback
+from main.models import Feedback, Forms
 
 # admin.site.register(Feedback)
 
@@ -15,3 +15,5 @@ class FeedbackAdmin(admin.ModelAdmin):
     
     def has_change_permission(self, request: HttpRequest, obj=None) -> bool:
         return False
+
+admin.site.register(Forms)
