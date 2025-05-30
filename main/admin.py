@@ -7,6 +7,8 @@ from main.models import Feedback
 @admin.register(Feedback)
 class FeedbackAdmin(admin.ModelAdmin):
     model = Feedback
+    list_display= ['user', 'text', 'phone', 'date']
+    fields = ['user', 'text', 'phone', 'date']
 
     def has_add_permission(self, request: HttpRequest) -> bool:
         return False

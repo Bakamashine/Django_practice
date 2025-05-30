@@ -25,7 +25,7 @@ def feedback(req: HttpRequest):
         if form.is_valid(): 
             text = form.cleaned_data['text']
             phone = form.cleaned_data['phone']
-            Feedback.objects.create(text=text, phone=phone)
+            Feedback.objects.create(text=text, phone=phone, user=req.user)
             return redirect("main")
         else:
             return render(req, 'main/feedback.html', {'form': form})

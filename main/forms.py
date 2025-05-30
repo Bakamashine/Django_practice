@@ -5,7 +5,7 @@ from RegAuth.forms import INPUT_STYLES
 
 class FeedbackForm(forms.Form):
     phone = forms.CharField(
-        max_length=12,
+        max_length=24,
         validators=[phone_validator],
         required=True,
         help_text="Введите свой номер телефона",
