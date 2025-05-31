@@ -8,12 +8,12 @@ class FeedbackForm(forms.Form):
         max_length=24,
         validators=[phone_validator],
         required=True,
-        help_text="Введите свой номер телефона",
         widget=forms.TextInput(attrs={"class": INPUT_STYLES}),
+        label="Номер телефона"
     )
 
     text = forms.CharField(
         required=True,
-        help_text="Введите ваше сообщение",
         widget=forms.Textarea(attrs={"class": INPUT_STYLES}),
+        label="Описание"
     )

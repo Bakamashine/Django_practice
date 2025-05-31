@@ -16,7 +16,7 @@
 }
 
 .pag {
-    @include mixins.flexCenter
+    @include mixins.flexCenter;
 }
 
 header {
@@ -36,7 +36,6 @@ header {
             color: white !important;
         }
     }
-
 
     .header__modalWindow {
         background-color: values.$modalWindow-background;
@@ -186,7 +185,7 @@ main {
                 color: black;
                 text-decoration: underline;
                 &:hover {
-                    text-decoration: none
+                    text-decoration: none;
                 }
             }
         }
@@ -206,7 +205,18 @@ main {
                 @include mixins.marginCenter;
             }
         }
-
     }
 
+    .category_name2 {
+        margin-top: 5px;
+        color: black;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .category_index {
+        // background: gray;
+    }
 }

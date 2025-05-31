@@ -184,5 +184,13 @@ main .news_detail_page .news_detail_page__right .carousel_size {
   margin-left: auto;
   margin-right: auto;
 }
+main .category_name2 {
+  margin-top: 5px;
+  color: black;
+  text-decoration: underline;
+}
+main .category_name2:hover {
+  text-decoration: none;
+}
 
 /*# sourceMappingURL=main.css.map */

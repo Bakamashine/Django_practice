@@ -27,7 +27,17 @@
         </div>
         <a href="{% url "about_us" %}">перейти на страницу</a>
     </div>
-    <div>
+
+    <div class="category_index">
         <a href="{% url "category" %}">Категории</a>
+        {% if categories|length > 0 %}
+            <div class="d-flex">
+                {% for category in categories %}
+                    <a class="category_name2" href="{% url "products" category.id %}">{{ category.name }}</a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-center">Категорий нет</p>
+        {% endif %}
     </div>
 {% endblock content %}

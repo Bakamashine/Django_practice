@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5a6a8a2eaae3747915ad19fbeb176df63a8e8f2dedd7c8b1db95a4ae8ea9c1b4"
+            "sha256": "b160cc49da0392e632f9a77787c80d397014df379b8b48f114f4417d51d2f0e2"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.11"
+            "python_version": "3.10"
         },
         "sources": [
             {
@@ -23,6 +23,17 @@
             ],
             "markers": "python_version >= '3.8'",
             "version": "==3.8.1"
+        },
+        "aspose-3d": {
+            "hashes": [
+                "sha256:1565487437e8af1c03c174f9b727df50cd09e55d32b6d7cc3b2fcd34334546b4",
+                "sha256:290fb2821823038559055538f580af0e0f8e8d2f3b74e221d9c2a51f8ef4a139",
+                "sha256:58808735382445a82a2e2eb0a86c0932dcd382cbf30500c717fbdb036d756a10",
+                "sha256:8fb71506d8cabf02aa3515bbc986424dff7fe9d71d13f41a22c5f3365c07db00"
+            ],
+            "index": "pypi",
+            "markers": "python_version < '3.12' and python_version >= '3.5'",
+            "version": "==25.5.0"
         },
         "click": {
             "hashes": [

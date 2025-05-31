@@ -30,7 +30,7 @@ const directionalLight = new THREE.DirectionalLight(0xffffff, 1); // Напра�
 directionalLight.position.set(5, 5, 5);
 
 loader.load(
-  "/media/product/models/Output.glb",
+  "/media/product/models/scene.gltf",
   function (gltf) {
     scene.add(gltf.scene);
     scene.add(ambientLight);
