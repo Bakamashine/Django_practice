@@ -25,10 +25,14 @@
             <div id="menu-button">
                 <a class="header__button"  onclick="">Бланки заказа</a>
                 <div id="menu-modalwindow" class="header__modalWindow hidden">
-                    {% for document_form in document_forms %}
-                        <a href="{{ document_form.file.url }}">{{ document_form.title }}</a>
-                        <p>{{ document_form.text }}</p>
-                    {% endfor %}
+                    {% if document_forms|length > 0 %}
+                        {% for document_form in document_forms %}
+                            <a href="{{ document_form.file.url }}">{{ document_form.title }}</a>
+                            <p>{{ document_form.text }}</p>
+                        {% endfor %}
+                    {% else %}
+                        <p>Доступных документов на данный момент нет</p>
+                    {% endif %}
                 </div>
             </div>
             <div id="menu-button">
