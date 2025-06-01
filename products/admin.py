@@ -6,8 +6,8 @@ import aspose.threed as a3d
 import os
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
-from io import BytesIO
 import tempfile
+import logging
 
 admin.site.register(Category)
 # admin.site.register(Product)
@@ -16,19 +16,6 @@ admin.site.register(Category)
 @admin.register(Product)
 class AdminProducts(admin.ModelAdmin):
     model = Product
-
-    # def save_model(self, file):
-    #     filename = file.name.lower()
-    #     name, ext = os.path.splitext(filename)
-        
-
-    #     if ext == ".stl":
-    #         scene = a3d.Scene.from_file(file)
-    #         saved_name = f"{name}.glb"
-    #         saved_path = default_storage.save(f"products/{saved_name}", file)
-    #         scene.save(saved_path)
-    #     elif ext == ".glb":
-    #         saved_path = default_storage.save(f"products/{filename}", file)
 
     def save_model(self, request: HttpRequest, obj, form: ModelForm, change: bool) -> None:
         super().save_model(request, obj, form, change)
@@ -62,6 +49,7 @@ class AdminProducts(admin.ModelAdmin):
             os.remove(tmp_input_file_path)
             os.remove(tmp_output_file_path)
 
+            logging.info("saved_path: ", saved_path)
             return saved_path
         elif ext == "glb":
             saved_name = f"product/models/{file.name}"
