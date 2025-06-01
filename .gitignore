@@ -6,9 +6,6 @@ staticfiles/*
 *.gltf
 *.jt
 *.slt
-migration
-migrations
-migrations/*
 __pycache__
 *.bin
 *.jpeg

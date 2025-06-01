@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5d3963ed7fade282a00a56a1c42496925f72ca8b22c860b01867685a14e0b700"
+            "sha256": "a6013f8597f62b4c07a9acdd40b0c9df21c0295b3a38824b3a9f662f577f8ee1"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -33,6 +33,14 @@
             ],
             "index": "pypi",
             "version": "==25.5.0"
+        },
+        "bleach": {
+            "hashes": [
+                "sha256:117d9c6097a7c3d22fd578fcd8d35ff1e125df6736f554da4e432fdd63f31e5e",
+                "sha256:123e894118b8a599fd80d3ec1a6d4cc7ce4e5882b1317a7e1ba69b56e95f991f"
+            ],
+            "markers": "python_version >= '3.9'",
+            "version": "==6.2.0"
         },
         "click": {
             "hashes": [
@@ -72,6 +80,13 @@
             ],
             "index": "pypi",
             "version": "==9.0.0"
+        },
+        "django-summernote": {
+            "hashes": [
+                "sha256:52e9b12438ed9eac0d77729f758f2aae06e468b5cbce133e24100d58ae4e43a8"
+            ],
+            "index": "pypi",
+            "version": "==0.8.20.0"
         },
         "django-vite": {
             "hashes": [
@@ -416,6 +431,13 @@
             ],
             "index": "pypi",
             "version": "==2025.2"
+        },
+        "webencodings": {
+            "hashes": [
+                "sha256:a0af1213f3c2226497a97e2b3aa01a7e4bee4f403f95be16fc9acd2947514a78",
+                "sha256:b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
+            ],
+            "version": "==0.5.1"
         }
     },
     "develop": {}

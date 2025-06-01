@@ -14,22 +14,22 @@ class News(models.Model):
         verbose_name = "Новость"
         verbose_name_plural = "Новости"
 
-class Images(models.Model):
-    news = models.ForeignKey(News, on_delete=models.CASCADE, related_name="images")
-    image = models.ImageField(
-        upload_to="news/",
-        help_text="Картинки",
-        verbose_name="Загрузить картинки",
-        blank=True,
-    )
+# class Images(models.Model):
+#     news = models.ForeignKey(News, on_delete=models.CASCADE, related_name="images")
+#     image = models.ImageField(
+#         upload_to="news/",
+#         help_text="Картинки",
+#         verbose_name="Загрузить картинки",
+#         blank=True,
+#     )
 
-    def __str__(self):
-        return f"Картинка {self.image}"
+#     def __str__(self):
+#         return f"Картинка {self.image}"
 
-    class Meta:
-        verbose_name = "Картинка"
-        verbose_name_plural = "Картинки"
+#     class Meta:
+#         verbose_name = "Картинка"
+#         verbose_name_plural = "Картинки"
 
-    def delete(self, using: Any = ..., keep_parents=...) -> tuple[int, dict[str, int]]:
-        self.image.delete()
-        return super().delete(using, keep_parents)
+#     def delete(self, using: Any = ..., keep_parents=...) -> tuple[int, dict[str, int]]:
+#         self.image.delete()
+#         return super().delete(using, keep_parents)

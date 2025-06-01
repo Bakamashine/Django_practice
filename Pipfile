@@ -11,6 +11,7 @@ django-vite = "*"
 djlint = "*"
 django-cleanup = "*"
 aspose-3d = "*"
+django-summernote = "*"
 
 [dev-packages]
 

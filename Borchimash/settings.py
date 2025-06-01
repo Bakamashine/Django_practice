@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "main.apps.MainConfig",
     'django_vite',
     'django_cleanup',
+    "django_summernote",
     'products.apps.ProductsConfig',
     'news.apps.NewsConfig',
 ]

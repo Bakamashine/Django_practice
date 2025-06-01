@@ -12,7 +12,7 @@
             <div class="one_news">
                 <p class="one_news_date">{{ one_news.date }}</p>
                 <div class="text">
-                    <p>{{ one_news.text }}</p>
+                    <p>{{ one_news.title }}</p>
                 </div>
                 <a href="{% url "news_detail" one_news.id %}">подробнее</a>
             </div>
