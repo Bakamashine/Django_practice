@@ -8,13 +8,12 @@ from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 import tempfile
 import logging
+from django_summernote.admin import SummernoteModelAdmin
 
 admin.site.register(Category)
-# admin.site.register(Product)
-
 
 @admin.register(Product)
-class AdminProducts(admin.ModelAdmin):
+class AdminProducts(SummernoteModelAdmin):
     model = Product
 
     def save_model(self, request: HttpRequest, obj, form: ModelForm, change: bool) -> None:
@@ -26,6 +25,7 @@ class AdminProducts(admin.ModelAdmin):
             obj.save() 
         
     def upload_file(self, file) -> (str|None):
+        saved_path_default = "product/models"
         name, ext = os.path.splitext(file.name.lower())
         ext = ext.lstrip(".")
 
@@ -43,7 +43,7 @@ class AdminProducts(admin.ModelAdmin):
             with open (tmp_output_file_path, 'rb') as tmp_output_file:
                 glb_data = tmp_output_file.read()
 
-            saved_name = f'products/models/{name}.glb'
+            saved_name = f'{saved_path_default}/{name}.glb'
             saved_path = default_storage.save(saved_name, ContentFile(glb_data))
 
             os.remove(tmp_input_file_path)
@@ -52,6 +52,6 @@ class AdminProducts(admin.ModelAdmin):
             logging.info("saved_path: ", saved_path)
             return saved_path
         elif ext == "glb":
-            saved_name = f"product/models/{file.name}"
+            saved_name = f"{saved_path_default}/{file.name}"
             saved_path = default_storage.save(saved_name, file)
             return saved_path
