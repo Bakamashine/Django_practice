@@ -1,23 +1,41 @@
-const menu_button = document.querySelectorAll("#menu-button");
-menu_button.forEach((elem) => {
-  /**
-   * @type {HTMLButtonElement}
-   */
-  let button = elem.children["click"];
+const menuButtons = document.querySelectorAll(".menu-buttons")
+console.log("menuButtons: ", menuButtons)
 
-  /**
-   * @type {HTMLElement}
-   */
-  let modal_window = elem.children["modal_window"];
-
-  console.log("button: ", button);
-  console.log("modal_window", modal_window);
-  console.log("elem_children", elem.children);
-
-  button.addEventListener("click", () => {
-    let isActive = modal_window.classList.contains("show");
-    isActive
-      ? modal_window.classList.replace("show", "hidden")
-      : modal_window.classList.replace("hidden", "show");
+menuButtons.forEach(elem => {
+	const button = elem.querySelector(".click")
+	const modalWindow = elem.querySelector(".modal_window")
+	
+    button.addEventListener("click", () => {
+      menuButtons.forEach((otherElem) => {
+        const otherModal = otherElem.querySelector(".modal_window");
+        if (otherModal !== modalWindow) {
+		console.log("otherModal: ", otherModal)
+	otherModal.classList.replace("show", "hidden")
+//          otherModal.classList.remove("show");
+//          otherModal.classList.add("hidden");
+        }
+      });
+      const isActive = modalWindow.classList.contains("show");
+      if (isActive) {
+        modalWindow.classList.replace("show", "hidden");
+      } else {
+        modalWindow.classList.replace("hidden", "show");
+      }
+    });
   });
-});
+  document.addEventListener("click", (event) => {
+    let clickedInsideModal = false;
+    menuButtons.forEach((elem) => {
+      if (elem.contains(event.target)) {
+        clickedInsideModal = true;
+      }
+    });
+    if (!clickedInsideModal) {
+      menuButtons.forEach((elem) => {
+        const modal = elem.querySelector(".modal_window");
+        modal.classList.remove("show");
+        modal.classList.add("hidden");
+      });
+    }
+  });
+ 

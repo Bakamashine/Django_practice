@@ -3,6 +3,38 @@
   margin: 0;
 }
 
+.menu-buttons {
+  position: relative;
+}
+.menu-buttons .modal_window {
+  position: absolute;
+  background: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  left: 0;
+  padding: 1rem 1.5rem;
+  min-width: 200px;
+  z-index: 10;
+  font-size: 0.95rem;
+  color: #333;
+}
+.menu-buttons .modal_window.show {
+  display: block;
+  animation: fadeInScale 0.25s ease forwards;
+}
+.menu-buttons .modal_window.hidden {
+  display: none;
+}
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .hidden {
   display: none;
 }
@@ -36,13 +68,13 @@ header {
   justify-content: space-between;
   padding: 5px;
 }
-header .header__button, header #menu-button .click_modal {
+header .header__button, header .menu-buttons .click {
   color: white;
   text-decoration: none;
   margin-right: 10px;
   cursor: pointer;
 }
-header .header__button:hover, header #menu-button .click_modal:hover {
+header .header__button:hover, header .menu-buttons .click:hover {
   border-bottom: 1px solid white;
   color: white !important;
 }
@@ -177,26 +209,29 @@ main .contacts-page .procherk {
   height: 20px;
   background-color: yellow;
 }
+main .main_category_page {
+  background-color: white;
+  padding: 30px;
+}
 main .category_page {
   display: grid;
   grid-template-columns: repeat(3, 360px);
   gap: 10px;
   justify-content: space-around;
   height: 500px;
-  background-image: white;
 }
-main .category_page .category {
+main .category_page .category_section {
   text-align: center;
 }
-main .category_page .category .category_image {
+main .category_page .category_section .category_image {
   width: 360px;
 }
-main .category_page .category .category_name {
+main .category_page .category_section .category_name {
   margin-top: 5px;
   color: black;
   text-decoration: underline;
 }
-main .category_page .category .category_name:hover {
+main .category_page .category_section .category_name:hover {
   text-decoration: none;
 }
 main .category_name2 {

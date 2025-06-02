@@ -1,9 +1,10 @@
 {% extends "main/layouts/basic.html" %}
 {% block title %}
-    {{ category.title }}
+    {{ category.name }}
 {% endblock title %}
 {% block content %}
     <div class="main_product_page">
+	<h4 class="text-center">{{ category.name }}</h4>
     <div>{{ category.description|safe }}</div>
     <div class="product_page">
         {% if products|length > 0 %}
@@ -14,7 +15,7 @@
                 </div>
             {% endfor %}
         {% else %}
-            <p class="text-center">Товаров в данной категории отсутствуют</p>
+            <p class="text-center">Товары в данной категории отсутствуют</p>
         {% endif %}
     </div>
     <div class="pag">

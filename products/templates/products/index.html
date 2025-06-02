@@ -3,11 +3,12 @@
     Категории
 {% endblock title %}
 {% block content %}
-    <div>
+<div class="main_category_page">
+	<h4 class="text-center">Все категории</h4>
     {% if categories|length > 0 %}
     <div class="category_page">
         {% for category in categories %}
-            <div class="category">
+            <div class="category_section">
                 <img class="category_image"
                      width="auto"
                      height="180"
@@ -25,5 +26,5 @@
         {% else %}
         <p class="text-center">Категории отсуствуют</p>
         {% endif %}
-    </div>
+</div>
 {% endblock content %}

@@ -12,8 +12,8 @@
   "author": "Bakamashine <surajaaminu09@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build-css": "sass main\\static\\scss:main\\static\\css",
-    "watch-css": "sass --watch main\\static\\scss:main\\static\\css",
+    "build-css": "sass main/static/scss:main/static/css",
+    "watch-css": "sass --watch main/static/scss:main/static/css",
     "dev": "concurrently \"npm run watch-css\" \"vite\"",
     "build": "vite build"
   }

@@ -21,9 +21,11 @@
     </head>
     <body>
         <header>
-            <div id="menu-button">
-                <a class="click_modal" id="click" href="javascript:void(0)">Бланки заказа</a>
-                <div id="modal_window" class="dropdown__content hidden">
+        
+        <!-- Бланки заказа -->
+            <div class="menu-buttons">
+                <a class="click" href="javascript:void(0)">Бланки заказа</a>
+                <div class="modal_window hidden">
                     {% if document_forms|length > 0 %}
                         {% for document_form in document_forms %}
                             <a href="{{ document_form.file.url }}">{{ document_form.title }}</a>
@@ -34,9 +36,11 @@
                     {% endif %}
                 </div>
             </div>
-            <div id="menu-button">
-                <a class="click_modal" id="click" href="javascript:void(0)">Контакты</a>
-                <div id="modal_window" class="dropdown__content hidden">
+            
+            <!-- Контакты -->
+            <div class="menu-buttons">
+                <a class="click" href="javascript:void(0)">Контакты</a>
+		<div class="modal_window hidden">
                     <p>
                         АО «БОРХИММАШ»
                         397164, Воронежская обл.,
