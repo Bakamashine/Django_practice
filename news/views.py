@@ -11,7 +11,7 @@ def detail(req: HttpRequest, one_news: int):
 
 def year(req: HttpRequest, year: int):
     news = News.objects.filter(date__year__exact=year).order_by('-date')
-    return render(req, 'news/year.html', {"news": news})
+    return render(req, 'news/year.html', {"news": news, "year": year})
 
 
 # def detail(req: HttpRequest, one_news: int):

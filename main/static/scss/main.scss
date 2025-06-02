@@ -52,12 +52,11 @@ header {
         }
     }
 
-   #menu-button {
+    #menu-button {
         .click_modal {
-            @extend .header__button
+            @extend .header__button;
         }
     }
-
 
     .dropdown__button {
         color: white;
@@ -97,6 +96,14 @@ header {
         font-size: 15px;
         font-weight: 200;
     }
+}
+
+body {
+    background-image: 
+    url("../img/background.jpg"),
+    url("../img/background2.png"),
+    url("../img/background3.jfif"),
+    url("../img/background4.jpg");
 }
 
 main {
@@ -154,6 +161,12 @@ main {
     }
 
     .about_us_page {
+
+        background-color: white;
+        padding-top: 30px;
+        .info {
+            padding: 30px;
+        }
         button {
             width: 100%;
             background-color: yellow;
@@ -193,13 +206,13 @@ main {
         }
     }
 
-
     .category_page {
         display: grid;
         grid-template-columns: repeat(3, $image_size);
         gap: 10px;
         justify-content: space-around;
         height: 500px;
+        background-image: white;
 
         .category {
             text-align: center;
@@ -229,6 +242,7 @@ main {
     .main_news {
         @include mixins.flexBetweenSpace;
 
+        background-color: white;
         .year_component {
             padding: 20px;
             width: 20%;
@@ -241,6 +255,8 @@ main {
 
         .news_component {
             width: 70%;
+            padding-top: 30px;
+            padding-right: 30px;
             .date {
                 color: gray;
             }
@@ -252,11 +268,16 @@ main {
 
     .category {
         padding: values.$standart_padding;
+        background-color: values.$news-background;
+
+        h4, h5 {
+            color: values.$news-color;
+        }
 
         .categories {
             display: flex;
             flex-wrap: wrap;
-            
+
             .wrapper {
                 margin-top: 10px;
             }
@@ -271,6 +292,10 @@ main {
         }
     }
 
+    .main_product_page {
+        background-color: white;
+        padding: 30px;
+    }
     .product_page {
         // @include mixins.flexBetweenSpace;
         display: grid;
@@ -279,7 +304,7 @@ main {
 
         .product {
         }
-    
+
         a {
             display: block;
             @extend .a-button-black;
@@ -287,17 +312,17 @@ main {
     }
 
     .product_detail_page {
-        
         $width: 80%;
-
+        background-color: white;
         display: grid;
         gap: 10px;
         justify-content: center;
         padding: values.$standart_padding;
-        
+
         img {
             width: $width;
             height: 300px;
+            @include mixins.marginCenter;
         }
 
         .text {

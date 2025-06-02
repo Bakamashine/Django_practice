@@ -84,6 +84,10 @@ header .dropdown__content {
   font-weight: 200;
 }
 
+body {
+  background-image: url("../img/background.jpg"), url("../img/background2.png"), url("../img/background3.jfif"), url("../img/background4.jpg");
+}
+
 main {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -132,6 +136,13 @@ main .about_us p,
 main .about_us a {
   color: white;
 }
+main .about_us_page {
+  background-color: white;
+  padding-top: 30px;
+}
+main .about_us_page .info {
+  padding: 30px;
+}
 main .about_us_page button {
   width: 100%;
   background-color: yellow;
@@ -172,6 +183,7 @@ main .category_page {
   gap: 10px;
   justify-content: space-around;
   height: 500px;
+  background-image: white;
 }
 main .category_page .category {
   text-align: center;
@@ -198,6 +210,7 @@ main .category_name2:hover {
 main .main_news {
   display: flex;
   justify-content: space-between;
+  background-color: white;
 }
 main .main_news .year_component {
   padding: 20px;
@@ -207,6 +220,8 @@ main .main_news .year_component {
 }
 main .main_news .news_component {
   width: 70%;
+  padding-top: 30px;
+  padding-right: 30px;
 }
 main .main_news .news_component .date {
   color: gray;
@@ -216,6 +231,10 @@ main .main_news .news_component .one_news {
 }
 main .category {
   padding: 10px;
+  background-color: #e3e4e4;
+}
+main .category h4, main .category h5 {
+  color: #909193;
 }
 main .category .categories {
   display: flex;
@@ -231,6 +250,10 @@ main .category a {
   display: block;
   margin-right: 10px;
 }
+main .main_product_page {
+  background-color: white;
+  padding: 30px;
+}
 main .product_page {
   display: grid;
   gap: 10px;
@@ -240,6 +263,7 @@ main .product_page a {
   display: block;
 }
 main .product_detail_page {
+  background-color: white;
   display: grid;
   gap: 10px;
   justify-content: center;
@@ -248,6 +272,8 @@ main .product_detail_page {
 main .product_detail_page img {
   width: 80%;
   height: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 main .product_detail_page .text {
   width: 80%;

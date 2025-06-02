@@ -32,14 +32,13 @@
         <a href="{% url "about_us" %}">перейти на страницу</a>
     </div>
     <div class="category">
-        <h5>Категории</h5>
+        <h4>Категории</h4>
         {% if categories|length > 0 %}
             <button class="btn btn-primary" onclick="route('{% url 'category' %}')">Все категории</button>
             <div class="categories">
                 {% for category in categories %}
                     <div class="wrapper">
-                        {% comment %} <a class="btn btn-warning" href="{% url "products" category.id %}">{{ category.name }}</a> {% endcomment %}
-                        <button class="btn btn-warning button-margin" onclick="route('{% url "products" category.id %}')">{{ category.name }}</button>
+                        <button class="btn btn-secondary button-margin" onclick="route('{% url "products" category.id %}')">{{ category.name }}</button>
                     </div>
                 {% endfor %}
             </div>

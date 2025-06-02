@@ -5,6 +5,7 @@
 {% endblock news_title %}
 {% block news_content %}
     <div class="news_year_page">
+        <h5 class="text-center">{{ year }} год</h5>
         {% if news|length > 0 %}
             {% for one_news in news %}
                 <div class="one_news">

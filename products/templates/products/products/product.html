@@ -3,6 +3,7 @@
     {{ category.title }}
 {% endblock title %}
 {% block content %}
+    <div class="main_product_page">
     <div>{{ category.description|safe }}</div>
     <div class="product_page">
         {% if products|length > 0 %}
@@ -19,4 +20,5 @@
     <div class="pag">
         {% include "main/layouts/paginator.html" %}
     </div>
+</div>
 {% endblock content %}
