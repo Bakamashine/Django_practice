@@ -31,12 +31,16 @@
         </div>
         <a href="{% url "about_us" %}">перейти на страницу</a>
     </div>
-    <div class="category_index">
-        <a href="{% url "category" %}">Категории</a>
+    <div class="category">
+        <h5>Категории</h5>
         {% if categories|length > 0 %}
-            <div class="d-flex">
+            <button class="btn btn-primary" onclick="route('{% url 'category' %}')">Все категории</button>
+            <div class="categories">
                 {% for category in categories %}
-                    <a class="category_name2" href="{% url "products" category.id %}">{{ category.name }}</a>
+                    <div class="wrapper">
+                        {% comment %} <a class="btn btn-warning" href="{% url "products" category.id %}">{{ category.name }}</a> {% endcomment %}
+                        <button class="btn btn-warning button-margin" onclick="route('{% url "products" category.id %}')">{{ category.name }}</button>
+                    </div>
                 {% endfor %}
             </div>
         {% else %}

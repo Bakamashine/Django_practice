@@ -208,5 +208,22 @@ main .main_news .news_component .date {
 main .main_news .news_component .one_news {
   margin-top: 30px;
 }
+main .category {
+  padding: 10px;
+}
+main .category .categories {
+  display: flex;
+  flex-wrap: wrap;
+}
+main .category .categories .wrapper {
+  margin-top: 10px;
+}
+main .category .button-margin {
+  margin-right: 10px;
+}
+main .category a {
+  display: block;
+  margin-right: 10px;
+}
 
 /*# sourceMappingURL=main.css.map */

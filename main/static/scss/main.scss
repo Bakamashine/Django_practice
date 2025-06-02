@@ -55,7 +55,6 @@ header {
         background-color: values.$modalWindow-background;
         padding: 20px;
         width: 400px;
-        // margin-right: 10px;
         position: absolute;
         left: 0px;
     }
@@ -165,7 +164,6 @@ main {
     }
 
     .contacts-page {
-        // @include mixins.flexBetweenSpace;
         color: white;
         .one {
             background-color: values.$header-background;
@@ -205,22 +203,6 @@ main {
         }
     }
 
-    // .news_detail_page {
-    //     @include mixins.flexBetweenSpace;
-    //     .news_detail_page__left {
-    //         width: 20%;
-    //     }
-
-    //     .news_detail_page__right {
-    //         width: 70%;
-
-    //         .carousel_size {
-    //             width: 70%;
-    //             @include mixins.marginCenter;
-    //         }
-    //     }
-    // }
-
     .category_name2 {
         margin-top: 5px;
         color: black;
@@ -228,10 +210,6 @@ main {
         &:hover {
             text-decoration: none;
         }
-    }
-
-    .category_index {
-        // background: gray;
     }
 
     .main_news {
@@ -255,6 +233,27 @@ main {
             .one_news {
                 margin-top: 30px;
             }
+        }
+    }
+
+    .category {
+        padding: values.$standart_padding;
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            
+            .wrapper {
+                margin-top: 10px;
+            }
+        }
+
+        .button-margin {
+            margin-right: 10px;
+        }
+        a {
+            display: block;
+            margin-right: 10px;
         }
     }
 }
