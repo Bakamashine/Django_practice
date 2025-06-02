@@ -1,6 +1,7 @@
 @use "values";
 @use "mixins";
 @use "config";
+$image_size: 360px;
 
 * {
     padding: 0;
@@ -178,7 +179,6 @@ main {
         }
     }
 
-    $image_size: 360px;
 
     .category_page {
         display: grid;
@@ -254,6 +254,41 @@ main {
         a {
             display: block;
             margin-right: 10px;
+        }
+    }
+
+    .product_page {
+        // @include mixins.flexBetweenSpace;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(3, $image_size);
+
+        .product {
+        }
+    
+        a {
+            display: block;
+            @extend .a-button-black;
+        }
+    }
+
+    .product_detail_page {
+        
+        $width: 80%;
+
+        display: grid;
+        gap: 10px;
+        justify-content: center;
+        padding: values.$standart_padding;
+        
+        img {
+            width: $width;
+            height: 300px;
+        }
+
+        .text {
+            width: $width;
+            word-wrap: normal;
         }
     }
 }

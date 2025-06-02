@@ -1,11 +1,22 @@
 {% extends "main/layouts/basic.html" %}
 {% block title %}
-    {{ title }}
+    {{ category.title }}
 {% endblock title %}
 {% block content %}
+    <div>{{ category.description|safe }}</div>
     <div class="product_page">
-        {% for product in products %}
-            <p>{{ product.title }}</p>
-        {% endfor %}
+        {% if products|length > 0 %}
+            {% for product in products %}
+                <div class="product">
+                    <img width="auto" height="180" src="{{ product.img.url }}" alt="Фото">
+                    <a href="{% url "product_detail" product.id %}">{{ product.title }}</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="text-center">Товаров в данной категории отсутствуют</p>
+        {% endif %}
+    </div>
+    <div class="pag">
+        {% include "main/layouts/paginator.html" %}
     </div>
 {% endblock content %}

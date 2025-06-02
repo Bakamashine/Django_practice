@@ -10,40 +10,56 @@ import tempfile
 import logging
 from django_summernote.admin import SummernoteModelAdmin
 
-admin.site.register(Category)
+
+@admin.register(Category)
+class AdminCategory(SummernoteModelAdmin):
+    model = Category
+    summernote_fields = ['description']
+    search_fields = ["name"]
+
 
 @admin.register(Product)
 class AdminProducts(SummernoteModelAdmin):
     model = Product
+    list_display = [
+        "title",
+        "category",
+    ]
 
-    def save_model(self, request: HttpRequest, obj, form: ModelForm, change: bool) -> None:
+    list_filter = ['category']
+
+    search_fields = ['title']
+
+    def save_model(
+        self, request: HttpRequest, obj, form: ModelForm, change: bool
+    ) -> None:
         super().save_model(request, obj, form, change)
-        if 'file' in request.FILES:
-            file = request.FILES['file']
+        if "file" in request.FILES:
+            file = request.FILES["file"]
             saved_path = self.upload_file(file)
-            obj.file_path = saved_path  
-            obj.save() 
-        
-    def upload_file(self, file) -> (str|None):
+            obj.file_path = saved_path
+            obj.save()
+
+    def upload_file(self, file) -> str | None:
         saved_path_default = "product/models"
         name, ext = os.path.splitext(file.name.lower())
         ext = ext.lstrip(".")
 
-        tmp_input_file_path = tempfile.mktemp(suffix = f'.{ext}')
-        with open(tmp_input_file_path, 'wb') as tmp_input_file:
+        tmp_input_file_path = tempfile.mktemp(suffix=f".{ext}")
+        with open(tmp_input_file_path, "wb") as tmp_input_file:
             for chunk in file.chunks():
                 tmp_input_file.write(chunk)
-        
-        if ext == 'stl':
+
+        if ext == "stl":
             scene = a3d.Scene.from_file(tmp_input_file_path)
 
             tmp_output_file_path = tempfile.mktemp(suffix=".glb")
             scene.save(tmp_output_file_path)
 
-            with open (tmp_output_file_path, 'rb') as tmp_output_file:
+            with open(tmp_output_file_path, "rb") as tmp_output_file:
                 glb_data = tmp_output_file.read()
 
-            saved_name = f'{saved_path_default}/{name}.glb'
+            saved_name = f"{saved_path_default}/{name}.glb"
             saved_path = default_storage.save(saved_name, ContentFile(glb_data))
 
             os.remove(tmp_input_file_path)

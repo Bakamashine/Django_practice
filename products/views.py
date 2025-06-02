@@ -11,7 +11,7 @@ FILES_ROOT = os.path.join(STATIC_URL, "models")
 
 def index(req: HttpRequest):
     category = Category.objects.all()
-    page = new_paginator(req, 6, category)
+    page = new_paginator(req, category)
     return render(
         req, "products/index.html", {"page": page, "categories": page.object_list}
     )
@@ -19,13 +19,18 @@ def index(req: HttpRequest):
 
 def product(req: HttpRequest, category: int):
     products = Product.objects.filter(category=category)
-    category_name = Category.objects.get(pk=category)
+    category = Category.objects.get(pk=category)
+    page = new_paginator(req, products)
 
     return render(
         req,
         "products/products/product.html",
         {
-            "title": category_name,
-            "products": products,
+            "page": page,
+            'category': category,
+            "products": page.object_list,
         },
     )
+def product_detail(req: HttpRequest, product: int):
+    product = Product.objects.get(pk=product)
+    return render(req, 'products/products/detail.html', {"product": product})

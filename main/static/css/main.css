@@ -17,15 +17,15 @@
   align-items: center;
 }
 
-.a-button, main .main_news .year_component a, .a-button-black {
+.a-button, main .main_news .year_component a, .a-button-black, main .product_page a {
   text-decoration: underline;
   color: white;
 }
-.a-button:hover, main .main_news .year_component a:hover, .a-button-black:hover {
+.a-button:hover, main .main_news .year_component a:hover, .a-button-black:hover, main .product_page a:hover {
   text-decoration: none;
 }
 
-.a-button-black {
+.a-button-black, main .product_page a {
   color: black;
 }
 
@@ -224,6 +224,28 @@ main .category .button-margin {
 main .category a {
   display: block;
   margin-right: 10px;
+}
+main .product_page {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 360px);
+}
+main .product_page a {
+  display: block;
+}
+main .product_detail_page {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+}
+main .product_detail_page img {
+  width: 80%;
+  height: 300px;
+}
+main .product_detail_page .text {
+  width: 80%;
+  word-wrap: normal;
 }
 
 /*# sourceMappingURL=main.css.map */

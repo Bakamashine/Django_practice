@@ -7,7 +7,7 @@ from products.models import Category
 
 def index(req):
     news = News.objects.all().values("date", 'title', 'id').order_by("-date")[:4]
-    categories = Category.objects.all().values('id', "name")[:4]
+    categories = Category.objects.all().values('id', "name")[:30]
     return render(req, "main/index.html", {"news": news, "categories": categories})
 
 def about_us(req):

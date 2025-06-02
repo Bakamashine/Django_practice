@@ -1,0 +1,12 @@
+{% extends "main/layouts/basic.html" %}
+{% block title %}
+    {{ product.title }}
+{% endblock title %}
+{% block content %}
+    <div class="product_detail_page">
+        <h5 class="text-center">{{ product.title }}</h5>
+        <img width="auto" height="auto" src="{{ product.img.url }}" alt="Фото">
+        <div class="text">{{ product.description|safe }}</div>
+        {% if product.file %}<a href="#">Есть возможность посмотреть в 3D</a>{% endif %}
+    </div>
+{% endblock content %}
