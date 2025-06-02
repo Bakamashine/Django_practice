@@ -59,6 +59,19 @@ header {
         position: absolute;
         left: 0px;
     }
+
+    .dropdown__button {
+        color: white;
+        text-decoration: none;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    .dropdown__content {
+        background-color: values.$modalWindow-background;
+        padding: 20px;
+        width: 400px;
+    }
 }
 
 .post_header {

@@ -53,6 +53,17 @@ header .header__modalWindow {
   position: absolute;
   left: 0px;
 }
+header .dropdown__button {
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+header .dropdown__content {
+  background-color: #e3e4e4;
+  padding: 20px;
+  width: 400px;
+}
 
 .post_header {
   display: flex;
