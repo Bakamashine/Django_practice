@@ -1,10 +1,19 @@
-{% extends "main/layouts/basic.html" %}
+{% extends "news/layouts/basic.html" %}
 {% load static %}
-{% block title %}
+{% block news_title %}
     Новости за {{ year }} год
-{% endblock title %}
-{% block content %}
+{% endblock news_title %}
+{% block news_content %}
     <div class="news_year_page">
-        
+        {% if news|length > 0 %}
+            {% for one_news in news %}
+                <div class="one_news">
+                    <p class="date">{{ one_news.date }}</p>
+                    <a class="a-button-black" href="{% url "news_detail" one_news.id %}">{{ one_news.title }}</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="text-center">Новостей за данный год не обнаружено</p>
+        {% endif %}
     </div>
-{% endblock content %}
+{% endblock news_content %}

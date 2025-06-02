@@ -1,20 +1,10 @@
-{% extends "main/layouts/basic.html" %}
+{% extends "news/layouts/basic.html" %}
 {% load static %}
-{% block title %}
+{% block news_title %}
     {{ one_news.title }}
-{% endblock title %}
-{% block content %}
-    <div class="news_detail_page">
-        <section class="news_detail_page__left">
-            <h2>ПОКАЗАТЬ НОВОСТИ ЗА</h2>
-            {% for year in years %}
-                <a href="{% url "year" year %}">{{ year }}</a>
-            {% endfor %}
-        </section>
-        <section class="news_detail_page__right">
-            <p>{{ one_news.date }}</p>
-            <h4>{{ one_news.title }}</h4>
-            <p>{{ one_news.text|safe }}</p>
-        </section>
-    </div>
-    {% endblock content %}
+{% endblock news_title %}
+{% block news_content %}
+        <p>{{ one_news.date }}</p>
+        <h4>{{ one_news.title }}</h4>
+        {{ one_news.text|safe }}
+{% endblock news_content %}

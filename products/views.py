@@ -11,12 +11,6 @@ FILES_ROOT = os.path.join(STATIC_URL, "models")
 
 def index(req: HttpRequest):
     category = Category.objects.all()
-    # paginator = Paginator(category, 6)
-    # if "page" in req.GET:
-    #     page_num = req.GET["page"]
-    # else:
-    #     page_num = 1
-    # page = paginator.get_page(page_num)
     page = new_paginator(req, 6, category)
     return render(
         req, "products/index.html", {"page": page, "categories": page.object_list}
