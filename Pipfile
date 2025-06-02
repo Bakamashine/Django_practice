@@ -12,6 +12,8 @@ djlint = "*"
 django-cleanup = "*"
 aspose-3d = "*"
 django-summernote = "*"
+django-seed = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
