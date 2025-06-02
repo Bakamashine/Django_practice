@@ -52,13 +52,12 @@ header {
         }
     }
 
-    .header__modalWindow {
-        background-color: values.$modalWindow-background;
-        padding: 20px;
-        width: 400px;
-        position: absolute;
-        left: 0px;
+   #menu-button {
+        .click_modal {
+            @extend .header__button
+        }
     }
+
 
     .dropdown__button {
         color: white;
@@ -71,6 +70,8 @@ header {
         background-color: values.$modalWindow-background;
         padding: 20px;
         width: 400px;
+        position: absolute;
+        z-index: 1;
     }
 }
 

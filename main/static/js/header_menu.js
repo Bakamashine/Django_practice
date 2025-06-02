@@ -14,11 +14,9 @@ menu_button.forEach((elem) => {
   console.log("modal_window", modal_window);
   console.log("elem_children", elem.children);
 
-  let isActive = modal_window.classList.contains("show");
-  console.log(isActive)
-
   button.addEventListener("click", () => {
-    !isActive
+    let isActive = modal_window.classList.contains("show");
+    isActive
       ? modal_window.classList.replace("show", "hidden")
       : modal_window.classList.replace("hidden", "show");
   });

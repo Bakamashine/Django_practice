@@ -36,22 +36,15 @@ header {
   justify-content: space-between;
   padding: 5px;
 }
-header .header__button {
+header .header__button, header #menu-button .click_modal {
   color: white;
   text-decoration: none;
   margin-right: 10px;
   cursor: pointer;
 }
-header .header__button:hover {
+header .header__button:hover, header #menu-button .click_modal:hover {
   border-bottom: 1px solid white;
   color: white !important;
-}
-header .header__modalWindow {
-  background-color: #e3e4e4;
-  padding: 20px;
-  width: 400px;
-  position: absolute;
-  left: 0px;
 }
 header .dropdown__button {
   color: white;
@@ -63,6 +56,8 @@ header .dropdown__content {
   background-color: #e3e4e4;
   padding: 20px;
   width: 400px;
+  position: absolute;
+  z-index: 1;
 }
 
 .post_header {
