@@ -7,7 +7,29 @@
 <div class="about_us_page">
   <h1 class="text-center">О предприятии Борхиммаш</h1>
   <div class="info">
-    <img width="auto" height="auto" src="{% static "img/1.jpg" %}" alt="photo">
+    
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+	<div class="carousel-item active" data-bs-interval="10000">
+	  <img src="{% static 'img/1.png' %}" class="d-block w-100" alt="...">
+	</div>
+	<div class="carousel-item" data-bs-interval="2000">
+	  <img src="{% static 'img/2.jpg' %}" class="d-block w-100" alt="...">
+	</div>
+	<div class="carousel-item">
+	  <img src="{% static 'img/background.jpg' %}" class="d-block w-100" alt="...">
+	</div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+	<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	<span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+	<span class="carousel-control-next-icon" aria-hidden="true"></span>
+	<span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
     <div class="text">
       <p>
         Акционерное общество «Борисоглебский ордена Трудового Красного Знамени завод химического машиностроения» обладает более чем 40-летним опытом производства теплообменного оборудования. На объектах наших заказчиков находится в эксплуатации свыше 6000 единиц изготовленного предприятием теплообменного оборудования. В настоящее время АО "Борхиммаш" является крупнейшим производителем аппаратов воздушного охлаждения в СНГ и Восточной Европе.
@@ -27,6 +49,7 @@
             data-bs-toggle="collapse"
             data-bs-target="#collapseExample"
             aria-expanded="false"
+	    class="open"
             aria-controls="collapseExample">ИСТОРИЯ ПРЕДПРИЯТИЯ</button>
     <div class="collapse spoiler__main" id="collapseExample">
       <div class="card card-body">

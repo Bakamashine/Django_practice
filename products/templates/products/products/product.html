@@ -1,25 +1,26 @@
+<!-- Здесь отображаются все товары в категории -->
 {% extends "main/layouts/basic.html" %}
 {% block title %}
-    {{ category.name }}
+{{ category.name }}
 {% endblock title %}
 {% block content %}
-    <div class="main_product_page">
-	<h4 class="text-center">{{ category.name }}</h4>
-    <div>{{ category.description|safe }}</div>
-    <div class="product_page">
-        {% if products|length > 0 %}
-            {% for product in products %}
-                <div class="product">
-                    <img width="auto" height="180" src="{{ product.img.url }}" alt="Фото">
-                    <a href="{% url "product_detail" product.id %}">{{ product.title }}</a>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p class="text-center">Товары в данной категории отсутствуют</p>
-        {% endif %}
+<div class="main_category_page">
+  <h4 class="text-center">{{ category.name }}</h4>
+  <div>{{ category.description|safe }}</div>
+  <div class="category_page">
+    {% if products|length > 0 %}
+    {% for product in products %}
+    <div class="category_section">
+      <img class="category_image" width="auto" height="180" src="{{ product.img.url }}" alt="Фото" /><br>
+      <a class="a-button-black" href="{% url "product_detail" product.id %}">{{ product.title }}</a>
     </div>
-    <div class="pag">
-        {% include "main/layouts/paginator.html" %}
-    </div>
+    {% endfor %}
+    {% else %}
+    <p class="text-center">Товары в данной категории отсутствуют</p>
+    {% endif %}
+  </div>
+  <div class="pag">
+    {% include "main/layouts/paginator.html" %}
+  </div>
 </div>
 {% endblock content %}

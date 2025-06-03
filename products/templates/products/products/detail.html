@@ -1,14 +1,16 @@
+<!-- Страница о товаре -->
 {% extends "main/layouts/basic.html" %}
 {% block title %}
-    {{ product.title }}
+{{ product.title }}
 {% endblock title %}
 {% block content %}
-    <div class="product_detail_page">
-        <h5 class="text-center">{{ product.title }}</h5>
-        <div>
-            <img width="auto" height="auto" src="{{ product.img.url }}" alt="Фото">
-        </div>
-        <div class="text">{{ product.description|safe }}</div>
-        {% if product.file %}<a href="{% url 'product_detail_3d' product.id %}">Есть возможность посмотреть в 3D</a>{% endif %}
-    </div>
+<div class="product_detail_page">
+  <h5 class="text-center">{{ product.title }}</h5>
+  <div>
+    <img width="auto" height="auto" src="{{ product.img.url }}" alt="Фото">
+  </div>
+  <p class="text-center">Описание: </p>
+  <div class="text">{{ product.description|safe }}</div>
+  {% if product.file %}<a href="{% url 'product_detail_3d' product.id %}">Есть возможность посмотреть в 3D</a>{% endif %}
+</div>
 {% endblock content %}

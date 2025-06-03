@@ -2,114 +2,168 @@
 {% load static %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html lang="ru">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>
-            {% block title %}
-            {% endblock title %}
-        </title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{% static "css/main.css" %}" type="text/css">
-        <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
-        {% vite_hmr_client %}
-    </head>
-    <body>
-        <header>
-        
-        <!-- Бланки заказа -->
-            <div class="menu-buttons">
-                <a class="click" href="javascript:void(0)">Бланки заказа</a>
-                <div class="modal_window hidden">
-                    {% if document_forms|length > 0 %}
-                        {% for document_form in document_forms %}
-                            <a href="{{ document_form.file.url }}">{{ document_form.title }}</a>
-                            <p>{{ document_form.text }}</p>
-                        {% endfor %}
-                    {% else %}
-                        <p>Доступных документов на данный момент нет</p>
-                    {% endif %}
-                </div>
-            </div>
-            
-            <!-- Контакты -->
-            <div class="menu-buttons">
-                <a class="click" href="javascript:void(0)">Контакты</a>
-		<div class="modal_window hidden">
-                    <p>
-                        АО «БОРХИММАШ»
-                        397164, Воронежская обл.,
-                        г. Борисоглебск, ул. Проходная, 4А
-                    </p>
-                    <p>
-                        Тел.: (8888) 8-88-88
-                        Факс: (8888) 8-88-88, 8-88-88, 8-88-88
-                    </p>
-                    <p>
-                        «Горячая линия» круглосуточной технической поддержки 8-888-888-88-88
-                        ГК «Лимонте»
-                    </p>
-                    <p>
-                        Тел.: (888) 888-88-88
-                        Факс: (888) 888-88-88
-                    </p>
-                    <a href="{% url "contacts" %}">Перейти на страницу контактов</a>
-                </div>
-            </div>
-            {% if user.is_authenticated %}
-                <div>
-                    <form id="logout-form"
-                          method="post"
-                          action="{% url 'logout' %}"
-                          class="hidden">
-                        {% csrf_token %}
-                    </form>
-                    <a class="header__button"
-                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Выход</a>
-                </div>
-                <div>
-                    <a class="header__button"  href="{% url "feedback" %}">Обратная связь</a>
-                </div>
-            {% else %}
-                <div>
-                    <a href="{% url "register" %}" class="header__button">Регистрация</a>
-                </div>
-                <div>
-                    <a href="{% url "login" %}" class="header__button">Авторизация</a>
-                </div>
-            {% endif %}
-        </header>
-        <div class="post_header">
-            <div>
-                <a href="{% url "main" %}">
-                    <img width="auto"
-                         height="auto"
-                         src="{% static "img/borchim.png" %}"
-                         alt="logo">
-                </a>
-            </div>
-            <div class="contacts">
-                <p class="text">КОНТАКТНЫЙ ТЕЛЕФОН</p>
-                <p class="number">888-888-88-88</p>
-                <p class="number">888-888-88-88</p>
-                <p class="text">
-                    ТЕХНИЧЕСКАЯ ПОДДЕРЖКА
-                    КРУГЛОСУТОЧНО
-                </p>
-                <p class="number">888-888-88-88</p>
-            </div>
-        </div>
-        <main>
-            {% block content %}
-            {% endblock content %}
-        </main>
-        <script src="{% static "js/bootstrap.min.js" %}"></script>
-        <script src="{% static "js/button_route.js" %}"></script>
-        <script src="{% static "js/header_menu.js" %}"></script>
-    </body>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+      {% block title %}
+      {% endblock title %}
+    </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static "css/main.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="icon" href="{% static "img/favicon.ico" %}" />
+    {% vite_hmr_client %}
+  </head>
+  <body>
+    <header>
+
+      <div class="burger" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+	<svg viewBox="0 0 100 80" width="40" height="40">
+	  <rect width="100" height="15"></rect>
+	  <rect y="30" width="100" height="15"></rect>
+	  <rect y="60" width="100" height="15"></rect>
+	</svg>
+      </div>
+
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+	<div class="offcanvas-header">
+	  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Меню</h5>
+	  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	</div>
+	<div class="offcanvas-body">
+	  <div class="menu-buttons2" onclick="route('{% url 'contacts' %}')">
+	    Контакты
+	  </div>
+
+	  <div class="menu-buttons2" onclick="route('{% url 'blanks' %}')">
+	    Бланки заказа
+	  </div>
+	  {% if user.is_authenticated %}
+	  <div class="menu-buttons2"
+               onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+	       >Выход</div>
+	  {% else %}
+	  <div class="menu-buttons2" onclick="route('{% url 'register' %}')">
+	    Регистрация
+	  </div>
+
+	  <div class="menu-buttons2" onclick="route('{% url 'login' %}')">
+	    Авторизация
+	  </div>
+
+	  {% endif %}
+	  <!-- <a href="{% url 'contacts' %}">Контакты</a> -->
+	</div>
+      </div>
+</div>
+
+
+
+
+<section class="main_menu_buttons hidden">
+
+  <!-- Бланки заказа -->
+  <div class="menu-buttons">
+    <a class="click" href="javascript:void(0)">Бланки заказа</a>
+    <div class="modal_window hidden">
+      {% if document_forms|length > 0 %}
+      {% for document_form in document_forms %}
+      <a href="{{ document_form.file.url }}">{{ document_form.title }}</a>
+      <p>{{ document_form.text }}</p>
+      {% endfor %}
+      {% else %}
+      <p>Доступных документов на данный момент нет</p>
+      {% endif %}
+    </div>
+  </div>
+  
+  <!-- Контакты -->
+  <div class="menu-buttons">
+    <a class="click" href="javascript:void(0)">Контакты</a>
+    <div class="modal_window hidden">
+      <p>
+        АО «БОРХИММАШ»
+        397164, Воронежская обл.,
+        г. Борисоглебск, ул. Проходная, 4А
+      </p>
+      <p>
+        Тел.: (8888) 8-88-88
+        Факс: (8888) 8-88-88, 8-88-88, 8-88-88
+      </p>
+      <p>
+        «Горячая линия» круглосуточной технической поддержки 8-888-888-88-88
+        ГК «Лимонте»
+      </p>
+      <p>
+        Тел.: (888) 888-88-88
+        Факс: (888) 888-88-88
+      </p>
+      <a href="{% url "contacts" %}">Перейти на страницу контактов</a>
+    </div>
+  </div>
+
+  {% if user.is_authenticated %}
+  <!-- Выход -->
+  <div>
+    <form id="logout-form"
+          method="post"
+          action="{% url 'logout' %}"
+          class="hidden">
+      {% csrf_token %}
+    </form>
+    <a class="header__button"
+       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Выход</a>
+  </div>
+  <div>
+    <a class="header__button"  href="{% url "feedback" %}">Обратная связь</a>
+  </div>
+  {% else %}
+
+  <!-- Регистрация -->
+  <div>
+    <a href="{% url "register" %}" class="header__button">Регистрация</a>
+  </div>
+
+  <!-- Авторизация -->
+  <div>
+    <a href="{% url "login" %}" class="header__button">Авторизация</a>
+  </div>
+  {% endif %}
+</section>
+</header>
+<div class="post_header">
+  <div>
+    <a href="{% url "main" %}">
+      <img width="auto"
+           height="auto"
+           src="{% static "img/borchim.png" %}"
+           alt="logo">
+    </a>
+  </div>
+  <div class="contacts">
+    <p class="text">КОНТАКТНЫЙ ТЕЛЕФОН</p>
+    <p class="number">888-888-88-88</p>
+    <p class="number">888-888-88-88</p>
+    <p class="text">
+      ТЕХНИЧЕСКАЯ ПОДДЕРЖКА
+      КРУГЛОСУТОЧНО
+    </p>
+    <p class="number">888-888-88-88</p>
+  </div>
+</div>
+<main>
+  {% block content %}
+  {% endblock content %}
+</main>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<script src="{% static "js/button_route.js" %}"></script>
+<script src="{% static "js/header_menu.js" %}"></script>
+<script src="{% static "js/mobile_menu.js" %}"></script>
+</body>
 </html>

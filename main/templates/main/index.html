@@ -6,7 +6,7 @@
     <div class="news">
         <div>
             <h4>НОВОСТИ</h4>
-            <a href="{% url "year" today_year %}">архив новостей</a>
+            <a class="news__button" href="{% url "year" today_year %}">архив новостей</a>
         </div>
         {% if news|length > 0 %}
             {% for one_news in news %}

@@ -33,3 +33,6 @@ def feedback(req: HttpRequest):
             return redirect("main")
         else:
             return render(req, 'main/feedback.html', {'form': form})
+
+def blanks(req: HttpRequest):
+    return render(req, 'main/blanks.html')

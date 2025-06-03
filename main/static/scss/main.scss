@@ -8,6 +8,11 @@ $image_size: 360px;
     margin: 0;
 }
 
+.default_image_size {
+    width: $image_size !important;
+    height: 180px !important;
+}
+
 .menu-buttons {
     position: relative;
     .modal_window {
@@ -44,14 +49,6 @@ $image_size: 360px;
     }
 }
 
-.hidden {
-    display: none;
-}
-
-.show {
-    display: block;
-}
-
 .pag {
     @include mixins.flexCenter;
 }
@@ -70,43 +67,48 @@ $image_size: 360px;
     color: black;
 }
 
+.burger {
+    display: none;
+}
+
 header {
-    background-color: values.$header-background;
-    height: 35px;
-    @include mixins.flexBetweenSpace;
-    padding: 5px;
+    .main_menu_buttons {
+	background-color: values.$header-background;
+	height: 35px;
+	@include mixins.flexBetweenSpace;
+	padding: 5px;
+	.header__button {
+            color: white;
+            text-decoration: none;
+            margin-right: 10px;
+            cursor: pointer;
 
-    .header__button {
-        color: white;
-        text-decoration: none;
-        margin-right: 10px;
-        cursor: pointer;
+            &:hover {
+		border-bottom: 1px solid white;
+		color: white !important;
+            }
+	}
 
-        &:hover {
-            border-bottom: 1px solid white;
-            color: white !important;
-        }
-    }
+	.menu-buttons {
+            .click {
+		@extend .header__button;
+            }
+	}
 
-    .menu-buttons {
-        .click {
-            @extend .header__button;
-        }
-    }
+	.dropdown__button {
+            color: white;
+            text-decoration: none;
+            margin-right: 10px;
+            cursor: pointer;
+	}
 
-    .dropdown__button {
-        color: white;
-        text-decoration: none;
-        margin-right: 10px;
-        cursor: pointer;
-    }
-
-    .dropdown__content {
-        background-color: values.$modalWindow-background;
-        padding: 20px;
-        width: 400px;
-        position: absolute;
-        z-index: 1;
+	.dropdown__content {
+            background-color: values.$modalWindow-background;
+            padding: 20px;
+            width: 400px;
+            position: absolute;
+            z-index: 1;
+	}
     }
 }
 
@@ -135,17 +137,8 @@ header {
 }
 
 body {
-/*
-background-image: 
-	url("../img/background.jpg"),
-	url("../img/background2.png"),
-	url("../img/background3.jfif"),
-	url("../img/background4.jpg");
-*/
     background-image: url("../img/background.jpg");
     background-repeate: no-repeate;
-    // background-size: cover;
-    
 }
 
 main {
@@ -157,6 +150,11 @@ main {
     width: 66.6%;
     display: grid;
     gap: 20px;
+
+    .blanks_page {
+	background-color: white;
+	padding: 30px;
+    }
 
     .auth {
 	@include mixins.default_back;
@@ -170,7 +168,7 @@ main {
         background-color: values.$news-background;
         padding: values.$standart_padding;
         @include mixins.flexBetweenSpace;
-
+	
         h1,
         h2,
         h3,
@@ -211,13 +209,17 @@ main {
     }
 
     .about_us_page {
-
         background-color: white;
         padding-top: 30px;
         .info {
             padding: 30px;
+	    padding-top: 20px;
+
         }
-        button {
+	.text {
+	    margin-top: 20px;
+	}
+        .open {
             width: 100%;
             background-color: yellow;
         }
@@ -231,66 +233,57 @@ main {
         }
     }
 
-    .info {
-        @include mixins.flexBetweenSpace;
-        padding-top: 20px;
-        .text {
-            width: 70%;
-            line-height: 18px;
-            font-size: 13px;
-        }
-    }
-
     .main_contact_page {
 	background-color: white;
 	padding: 30px;
-	    h3 {
-		margin-top: 20px;
-		margin-bottom: 20px;
-	    }
+	h3 {
+	    margin-top: 20px;
+	    margin-bottom: 20px;
+	}
 	.contacts-page {
             color: white;
 
-        .one {
-            background-color: values.$header-background;
-            padding: values.$standart_padding;
-            line-height: 18px;
-            font-size: 13px;
-        }
+            .one {
+		background-color: values.$header-background;
+		padding: values.$standart_padding;
+		line-height: 18px;
+		font-size: 13px;
+            }
 
-        .procherk {
-            height: 20px;
-            background-color: yellow;
-        }
-    }
+            .procherk {
+		height: 20px;
+		background-color: yellow;
+            }
+	}
     }
 
     
     .main_category_page {
 	background-color: white;
 	padding: 30px;
-    }
-    .category_page {
-        display: grid;
-        grid-template-columns: repeat(3, $image_size);
-        gap: 10px;
-        justify-content: space-around;
-        height: 500px;
+	
+	.category_page {
+            display: grid;
+            grid-template-columns: repeat(3, $image_size);
+            gap: 10px;
+            justify-content: space-around;
+            height: 500px;
 
-        .category_section {
-            text-align: center;
-            .category_image {
-                width: $image_size;
+            .category_section {
+		text-align: center;
+		.category_image {
+                    width: $image_size;
+		}
+		.category_name {
+                    margin-top: 5px;
+                    color: black;
+                    text-decoration: underline;
+                    &:hover {
+			text-decoration: none;
+                    }
+		}
             }
-            .category_name {
-                margin-top: 5px;
-                color: black;
-                text-decoration: underline;
-                &:hover {
-                    text-decoration: none;
-                }
-            }
-        }
+	}
     }
 
     .category_name2 {
@@ -355,6 +348,7 @@ main {
         }
     }
 
+
     .main_product_page {
         background-color: white;
         padding: 30px;
@@ -366,8 +360,6 @@ main {
         grid-template-columns: repeat(3, $image_size);
 	justify-content: center;
 
-        .product {
-        }
 
         a {
             display: block;
@@ -384,8 +376,7 @@ main {
         padding: values.$standart_padding;
 
         img {
-            width: $width;
-            height: 300px;
+	    width: $image_size;
             @include mixins.marginCenter;
         }
 
@@ -393,5 +384,150 @@ main {
             width: $width;
             word-wrap: normal;
         }
+    }
+}
+
+
+
+@media(max-width: 1080px) {
+    header {
+	.main_menu_buttons {
+	    background-color: values.$header-background;
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+
+	    .header__button {
+		color: white;
+		text-decoration: none;
+		margin-right: 0;
+
+		&:hover {
+		    border-bottom: 1px solid white;
+		    color: white !important;
+		}
+	    }
+
+	    &.show {
+		display: block;
+	    }
+
+	    &.hidden {
+		display: none;
+	    }
+	}
+    }
+
+    main {
+	width: 100%;
+        padding-top: 10px;
+        padding-bottom: 0;
+        margin-top: 0;
+        height: auto; 
+        display: grid;
+	margin-right: 0;
+	margin-left: 0;
+        gap: 20px;
+
+	.news {
+	    background-color: values.$news-background;
+	    padding: values.$standart_padding;
+	    display: block;
+	    
+	    h1,
+	    h2,
+	    h3,
+	    h4,
+	    h5 {
+		color: values.$news-color;
+	    }
+
+	    .text {
+		width: 200px;
+		margin: 0;
+		-webkit-line-clamp: 2;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	    }
+
+	    .one_news {
+		margin-top: 30px;
+		.one_news_date {
+		    color: values.$color_value1;
+		}
+	    }
+	}
+
+	.news__button {
+	    margin-bottom: 20px;
+	}
+    }
+
+    .burger {
+	display: block;
+	position: fixed;
+	border: 1px solid black;
+	left: 0;
+	border-radius: 0px 5px 5px 0px;
+	top: 50px;
+	z-index: 1;
+	background-color: white;
+    }
+    
+    .contacts {
+	display: none;
+    }
+
+    .post_header {
+	display: flex;
+	@include mixins.flexCenter;
+    }
+    .menu-buttons {
+	position: static;
+	.modal_window {
+	    display: none;
+	    &.show {
+		display: none;
+	    }
+	}
+    }
+
+    .menu-buttons2 {
+	width: 100%;
+	border-bottom: 1px solid black;
+	height: 50px;
+	@include mixins.flexCenter;
+	cursor: pointer;
+	user-select: none;
+    }
+
+        .main_category_page {
+	background-color: white;
+	padding: 30px;
+	
+	.category_page {
+            display: grid !important;
+            grid-template-columns: none !important;
+            gap: 10px !important;
+            justify-content: center !important;
+            height: auto !important;
+
+            .category_section {
+		text-align: center;
+		margin-bottom: 20px;
+		.category_image {
+                    width: $image_size;
+		}
+		.category_name {
+                    margin-top: 5px;
+                    color: black;
+                    text-decoration: underline;
+                    &:hover {
+			text-decoration: none;
+                    }
+		}
+            }
+	}
     }
 }
