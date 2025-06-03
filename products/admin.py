@@ -33,12 +33,13 @@ class AdminProducts(SummernoteModelAdmin):
     def save_model(
         self, request: HttpRequest, obj, form: ModelForm, change: bool
     ) -> None:
-        super().save_model(request, obj, form, change)
+        # super().save_model(request, obj, form, change)
         if "file" in request.FILES:
             file = request.FILES["file"]
             saved_path = self.upload_file(file)
-            obj.file_path = saved_path
+            obj.file = saved_path
             obj.save()
+            # super().save_model(request, obj, form, change)
 
     def upload_file(self, file) -> str | None:
         saved_path_default = "product/models"
