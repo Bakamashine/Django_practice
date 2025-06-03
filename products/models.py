@@ -33,9 +33,9 @@ class Product(models.Model):
     )
     file = models.FileField(
         help_text=f"Модель в 3Д в форматах {VALID_EXTENS} ",
-        # validators=[
-        #     FileExtensionValidator(formats, f"Файл должен быть с расширением {formats}")
-        #     ],
+        validators=[
+            FileExtensionValidator(formats, f"Файл должен быть с расширением {formats}")
+            ],
         upload_to="product/models",
         verbose_name="Выберите 3Д модель"
     )

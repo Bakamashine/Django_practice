@@ -4,6 +4,7 @@ from django.http import HttpRequest
 from main.forms import FeedbackForm
 from main.models import Feedback
 from products.models import Category
+from django.contrib.auth.decorators import login_required
 
 def index(req):
     news = News.objects.all().values("date", 'title', 'id').order_by("-date")[:4]
@@ -19,6 +20,7 @@ def contacts(req):
 def test(req):
     return render(req, 'main/test.html')
 
+@login_required
 def feedback(req: HttpRequest):
     if req.method == "GET":
         return render(req, 'main/feedback.html', {'form': FeedbackForm})

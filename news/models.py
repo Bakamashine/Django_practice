@@ -5,7 +5,7 @@ from django.db import models
 class News(models.Model):
     title = models.CharField(verbose_name="Внесите заголовок", max_length=20)
     text = models.TextField(verbose_name="Описание")
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateTimeField(auto_now_add=True, verbose_name="Дата")
 
     def __str__(self):
         return self.title
@@ -13,23 +13,3 @@ class News(models.Model):
     class Meta:
         verbose_name = "Новость"
         verbose_name_plural = "Новости"
-
-# class Images(models.Model):
-#     news = models.ForeignKey(News, on_delete=models.CASCADE, related_name="images")
-#     image = models.ImageField(
-#         upload_to="news/",
-#         help_text="Картинки",
-#         verbose_name="Загрузить картинки",
-#         blank=True,
-#     )
-
-#     def __str__(self):
-#         return f"Картинка {self.image}"
-
-#     class Meta:
-#         verbose_name = "Картинка"
-#         verbose_name_plural = "Картинки"
-
-#     def delete(self, using: Any = ..., keep_parents=...) -> tuple[int, dict[str, int]]:
-#         self.image.delete()
-#         return super().delete(using, keep_parents)

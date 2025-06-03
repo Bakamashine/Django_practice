@@ -4,9 +4,11 @@
     Обратная связь
 {% endblock title %}
 {% block content %}
+<div class="feedback_page">
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button class="btn btn-primary">Отправить</button>
     </form>
+    </div>
 {% endblock content %}

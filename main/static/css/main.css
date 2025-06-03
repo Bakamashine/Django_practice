@@ -117,7 +117,15 @@ header .dropdown__content {
 }
 
 body {
-  background-image: url("../img/background.jpg"), url("../img/background2.png"), url("../img/background3.jfif"), url("../img/background4.jpg");
+  /*
+  background-image: 
+  	url("../img/background.jpg"),
+  	url("../img/background2.png"),
+  	url("../img/background3.jfif"),
+  	url("../img/background4.jpg");
+  */
+  background-image: url("../img/background.jpg");
+  background-repeate: no-repeate;
 }
 
 main {
@@ -130,6 +138,16 @@ main {
   width: 66.6%;
   display: grid;
   gap: 20px;
+}
+main .auth {
+  background-color: white;
+  padding: 30px;
+  margin-bottom: auto;
+}
+main .feedback_page {
+  background-color: white;
+  padding: 30px;
+  margin-bottom: auto;
 }
 main .news {
   background-color: #e3e4e4;
@@ -196,16 +214,24 @@ main .info .text {
   line-height: 18px;
   font-size: 13px;
 }
-main .contacts-page {
+main .main_contact_page {
+  background-color: white;
+  padding: 30px;
+}
+main .main_contact_page h3 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+main .main_contact_page .contacts-page {
   color: white;
 }
-main .contacts-page .one {
+main .main_contact_page .contacts-page .one {
   background-color: #1f1c36;
   padding: 10px;
   line-height: 18px;
   font-size: 13px;
 }
-main .contacts-page .procherk {
+main .main_contact_page .contacts-page .procherk {
   height: 20px;
   background-color: yellow;
 }
@@ -293,6 +319,7 @@ main .product_page {
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(3, 360px);
+  justify-content: center;
 }
 main .product_page a {
   display: block;

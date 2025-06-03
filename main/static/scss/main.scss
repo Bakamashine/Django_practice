@@ -9,39 +9,39 @@ $image_size: 360px;
 }
 
 .menu-buttons {
-position: relative;
-  .modal_window {
-    position: absolute;
-    background: white;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    left: 0;
-    padding: 1rem 1.5rem;
-    min-width: 200px;
-    z-index: 10;
-    font-size: 0.95rem;
-    color: #333;
+    position: relative;
+    .modal_window {
+	position: absolute;
+	background: white;
+	box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+	left: 0;
+	padding: 1rem 1.5rem;
+	min-width: 200px;
+	z-index: 10;
+	font-size: 0.95rem;
+	color: #333;
 
-    &.show {
+	&.show {
 
-		display: block;
-		animation: fadeInScale 0.25s ease forwards;
+	    display: block;
+	    animation: fadeInScale 0.25s ease forwards;
 	}
 
 	&.hidden {
-		display: none;
+	    display: none;
 	}
-  }
+    }
 
-  @keyframes fadeInScale {
-    0% {
-      opacity: 0;
-      transform:  scale(0.85);
+    @keyframes fadeInScale {
+	0% {
+	    opacity: 0;
+	    transform:  scale(0.85);
+	}
+	100% {
+	    opacity: 1;
+	    transform:  scale(1);
+	}
     }
-    100% {
-      opacity: 1;
-      transform:  scale(1);
-    }
-  }
 }
 
 .hidden {
@@ -135,11 +135,17 @@ header {
 }
 
 body {
-    background-image: 
-    url("../img/background.jpg"),
-    url("../img/background2.png"),
-    url("../img/background3.jfif"),
-    url("../img/background4.jpg");
+/*
+background-image: 
+	url("../img/background.jpg"),
+	url("../img/background2.png"),
+	url("../img/background3.jfif"),
+	url("../img/background4.jpg");
+*/
+    background-image: url("../img/background.jpg");
+    background-repeate: no-repeate;
+    // background-size: cover;
+    
 }
 
 main {
@@ -152,6 +158,14 @@ main {
     display: grid;
     gap: 20px;
 
+    .auth {
+	@include mixins.default_back;
+    }
+    
+    .feedback_page {
+	@include mixins.default_back;
+    }
+    
     .news {
         background-color: values.$news-background;
         padding: values.$standart_padding;
@@ -227,8 +241,16 @@ main {
         }
     }
 
-    .contacts-page {
-        color: white;
+    .main_contact_page {
+	background-color: white;
+	padding: 30px;
+	    h3 {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	    }
+	.contacts-page {
+            color: white;
+
         .one {
             background-color: values.$header-background;
             padding: values.$standart_padding;
@@ -241,8 +263,9 @@ main {
             background-color: yellow;
         }
     }
+    }
 
-   
+    
     .main_category_page {
 	background-color: white;
 	padding: 30px;
@@ -341,6 +364,7 @@ main {
         display: grid;
         gap: 10px;
         grid-template-columns: repeat(3, $image_size);
+	justify-content: center;
 
         .product {
         }
