@@ -9,6 +9,6 @@
             <img width="auto" height="auto" src="{{ product.img.url }}" alt="Фото">
         </div>
         <div class="text">{{ product.description|safe }}</div>
-        {% if product.file %}<a href="#">Есть возможность посмотреть в 3D</a>{% endif %}
+        {% if product.file %}<a href="{% url 'product_detail_3d' product.id %}">Есть возможность посмотреть в 3D</a>{% endif %}
     </div>
 {% endblock content %}

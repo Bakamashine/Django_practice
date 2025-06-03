@@ -1,0 +1,22 @@
+{% load django_vite %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>{{ product.name }} 3D</title>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="{% static "css/two.css" %}">
+    {% vite_hmr_client %}
+
+  </head>
+  <body>
+
+    <script type="module">
+      window.PRODUCT_FILE_URL = "{{ product.file.url|escapejs }}";
+    </script>
+    {% vite_asset 'assets/test2.js' %}
+  </body>
+  
+</html>
