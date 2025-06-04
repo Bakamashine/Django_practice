@@ -4,7 +4,7 @@ from django.core.validators import FileExtensionValidator
 
 class Category(models.Model):
     name = models.CharField(verbose_name="Название категории", max_length=30)
-    description = models.CharField(verbose_name="Описание")
+    description = models.CharField(verbose_name="Описание", max_length=5000)
     img = models.ImageField(
         verbose_name="Изображение", upload_to="category/img"
     )
