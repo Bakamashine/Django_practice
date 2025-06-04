@@ -8,11 +8,10 @@ staticfiles/*
 *.slt
 __pycache__
 *.bin
-*.jpeg
-*.jpg
 *.bak
-*.png
 textures/*
 *~
 *.un~
 .vscode
+
+media/*
