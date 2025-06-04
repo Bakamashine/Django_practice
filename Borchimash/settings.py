@@ -95,6 +95,20 @@ WSGI_APPLICATION = 'Borchimash.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#          "default": {
+#              "ENGINE": "django.db.backends.mysql",
+#              "NAME": "dadamapt_dj1",
+#              "USER": "dadamapt_dj1",
+#              "PASSWORD": "Moredock1moredock1.",
+#              "OPTIONS": {
+#                  "charset": "utf8mb4",
+#              },
+#          }
+# }
+     
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
