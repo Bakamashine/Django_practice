@@ -34,7 +34,8 @@
                            line-height: 1.5">
                     <p>Здравствуйте,</p>
                     <p>Это сообщение было отправлено из вашего приложения на Django.</p>
-        <a href="http://localhost:8000/accept/{{token}}/{{uid}}">Перейдите для регистрации</a>
+        {% comment %} <a href="http://localhost:8000/accept/{{token}}/{{uid}}">Перейдите для регистрации</a> {% endcomment %}
+        <a href="{{ url }}">Перейдите для регистрации</a>
                     <p>Спасибо,</p>
                     <p>Команда Django</p>
                 </td>

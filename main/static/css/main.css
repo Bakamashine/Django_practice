@@ -8,6 +8,14 @@
   height: 180px !important;
 }
 
+.success_message {
+  background-color: white;
+  margin-bottom: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .menu-buttons {
   position: relative;
 }

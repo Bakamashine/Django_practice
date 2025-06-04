@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django_cleanup',
     'django_seed',
     "django_summernote",
+    "django.contrib.sites",
     'products.apps.ProductsConfig',
     'news.apps.NewsConfig',
 ]
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
 DJANGO_VITE_DEV_MODE = DEBUG
 VITE_MANIFEST_PATH = BASE_DIR / 'static' / 'dist' / 'manifest.json'
 
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
