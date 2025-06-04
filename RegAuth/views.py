@@ -16,8 +16,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.conf import settings
 from django.http import Http404, HttpResponse, HttpRequest
 from django.contrib.auth import login
-from django.contrib.sites.models import Site
-
+#from django.contrib.sites.models import Site
 
 class SendEmail:
     """Отправка письма на почту"""
@@ -29,8 +28,8 @@ class SendEmail:
 
 
     def send_active_email(self):
-        domain = Site.objects.get_current().domain
-
+#        domain = Site.objects.get_current().domain
+        domain = settings.BASE_URL
         # url = "https://%s%s" % (Site.objects.get_current().domain, f"/accept/{self.token}/{self.uid}")
         token_url = f"accept/{self.token}/{self.uid}"
         url = f"http://{domain}/{token_url} "

@@ -26,8 +26,10 @@ SECRET_KEY = 'django-insecure-r463&qo5ujri%_sc&ujvr!6w$4yih$@ae!wy5yml+l8v!y%3u_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+# ULR Сайта
+BASE_URL = "localhost:8000"
 
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
