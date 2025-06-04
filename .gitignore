@@ -13,5 +13,6 @@ textures/*
 *~
 *.un~
 .vscode
-
+migrations
+__pycache__
 media/*
