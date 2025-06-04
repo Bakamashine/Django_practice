@@ -5,6 +5,7 @@
 {% endblock title %}
 {% block content %}
 <div class="feedback_page">
+    <h1 class="text-center">Обратная связь</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
