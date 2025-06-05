@@ -37,7 +37,9 @@ class Product(models.Model):
             FileExtensionValidator(formats, f"Файл должен быть с расширением {formats}")
             ],
         upload_to="product/models",
-        verbose_name="Выберите 3Д модель"
+        verbose_name="Выберите 3Д модель",
+        blank=True,
+        null=True
     )
 
     def __str__(self):
