@@ -28,14 +28,14 @@ class CustomAbstractUser(AbstractUser):
         },
     )
 
-    is_active = models.BooleanField(
-        _("non-active"),
-        default=False,
-        # help_text=_(
-        #     "Designates whether this user should be treated as active. "
-        #     "Unselect this instead of deleting accounts."
-        # ),
-    )
+    # is_active = models.BooleanField(
+    #     _("non-active"),
+    #     default=False,
+    #     # help_text=_(
+    #     #     "Designates whether this user should be treated as active. "
+    #     #     "Unselect this instead of deleting accounts."
+    #     # ),
+    # )
 
     token = models.CharField(max_length=255, unique=True, null=True)
 

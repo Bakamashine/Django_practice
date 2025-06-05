@@ -72,20 +72,23 @@ class CustomRegisterView(AnonRequired, CreateView):
 
     def form_valid(self, form):
         user: CustomAbstractUser = form.save()
-        try:
-            user.token = default_token_generator.make_token(user)
-            user.save()
-            mail = SendEmail(user=user)
-            mail.send_active_email()
-            return redirect("acceptEmail")
-        except SMTPDataError:
-            user.delete()
-            form.add_error("email", "Такой почты не существует")
-            return self.form_invalid(form)
-        except:
-            user.delete()
-            form.add_error("email", "Ошибка с отправкой письма")
-            return self.form_invalid(form)
+        login(self.request, user)
+        return redirect("main")
+        
+        # try:
+        #     user.token = default_token_generator.make_token(user)
+        #     user.save()
+        #     mail = SendEmail(user=user)
+        #     mail.send_active_email()
+        #     return redirect("acceptEmail")
+        # except SMTPDataError:
+        #     user.delete()
+        #     form.add_error("email", "Такой почты не существует")
+        #     return self.form_invalid(form)
+        # except:
+        #     user.delete()
+        #     form.add_error("email", "Ошибка с отправкой письма")
+            # return self.form_invalid(form) 
 
 
 class CustomLoginView(AnonRequired, LoginView):

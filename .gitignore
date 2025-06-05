@@ -16,3 +16,4 @@ textures/*
 migrations
 __pycache__
 media/*
+static/dist

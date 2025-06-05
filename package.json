@@ -7,7 +7,6 @@
   },
   "name": "Django_practice",
   "version": "1.0.0",
-  "main": "index.js",
   "repository": "https://github.com/Bakamashine/Django_practice.git",
   "author": "Bakamashine <surajaaminu09@gmail.com>",
   "license": "MIT",
