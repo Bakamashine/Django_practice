@@ -51,8 +51,11 @@ INSTALLED_APPS = [
     'news.apps.NewsConfig',
 ]
 
-DJANGO_VITE_DEV_MODE = DEBUG
-VITE_MANIFEST_PATH = BASE_DIR / 'static' / 'dist' / 'manifest.json'
+DJANGO_VITE = {
+    "default": {
+        "dev_mode": DEBUG
+    }
+}
 
 SITE_ID = 1
 
@@ -154,10 +157,10 @@ USE_TZ = False
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    BASE_DIR / "assets",
+        BASE_DIR / "assets",
 ]
-STATIC_ROOT = path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
