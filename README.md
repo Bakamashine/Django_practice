@@ -106,5 +106,11 @@ npx vite
 ```bash
 npm run dev
 ```
+### Создание администратора (работает только с non_email_register)
+Для создания администратора, введите:
+```bash
+python manage.py createsuperuser
+```
+Вводите что просит система
 
 Если лень разворачивать: http://dadamapt.beget.tech (может быть уже заблокирован)
