@@ -8,6 +8,10 @@
         sudo apt-get update &&
         sudo apt-get install libpq-dev
 ```
+Если же вы не можете себе этого позволить, то можно попробовать установить бинарную версию
+```
+    pip install psycopg2-binary
+```
 4. Пакетный менеджер pip
 4. Node.js
 
