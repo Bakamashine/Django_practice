@@ -14,9 +14,13 @@ from smtplib import SMTPRecipientsRefused, SMTPDataError
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.conf import settings
-from django.http import Http404, HttpResponse, HttpRequest
+from django.http import Http404
 from django.contrib.auth import login
-#from django.contrib.sites.models import Site
+from rest_framework import generics, response, status
+from RegAuth.serializers import CustomAbstractUserSerializer
+from .models import CustomAbstractUser
+
+# from django.contrib.sites.models import Site
 
 class SendEmail:
     """Отправка письма на почту"""
@@ -26,9 +30,8 @@ class SendEmail:
         self.token = default_token_generator.make_token(user)
         self.uid = urlsafe_base64_encode(str(self.user.pk).encode())
 
-
     def send_active_email(self):
-#        domain = Site.objects.get_current().domain
+        #        domain = Site.objects.get_current().domain
         domain = settings.BASE_URL
         # url = "https://%s%s" % (Site.objects.get_current().domain, f"/accept/{self.token}/{self.uid}")
         token_url = f"accept/{self.token}/{self.uid}"
@@ -44,7 +47,6 @@ class SendEmail:
                     # "user": self.user.username,
                     # "token": self.token,
                     # "uid": self.uid,
-                
                     "url": url
                 },
             ),
@@ -74,7 +76,7 @@ class CustomRegisterView(AnonRequired, CreateView):
         user: CustomAbstractUser = form.save()
         login(self.request, user)
         return redirect("main")
-        
+
         # try:
         #     user.token = default_token_generator.make_token(user)
         #     user.save()
@@ -88,7 +90,7 @@ class CustomRegisterView(AnonRequired, CreateView):
         # except:
         #     user.delete()
         #     form.add_error("email", "Ошибка с отправкой письма")
-            # return self.form_invalid(form) 
+        # return self.form_invalid(form)
 
 
 class CustomLoginView(AnonRequired, LoginView):
@@ -126,3 +128,20 @@ def accept_email2(request, token, uid):
             return redirect("main")
     except CustomAbstractUser.DoesNotExist:
         return Http404("Такого пользователя не существует")
+
+
+class RegisterUserApi(generics.CreateAPIView):
+    serializer_class = CustomAbstractUserSerializer
+
+    def post(self, request, *args, **kwargs):
+        user = self.serializer_class(data=request.data)
+        if user.is_valid():
+            user.save()
+
+            userRetrieved = CustomAbstractUser.objects.get(username=user.data["username"])
+            rawUserPassword = user.data["password"]
+            userRetrieved.set_password(rawUserPassword)
+            userRetrieved.save();
+            return response.Response(status=status.HTTP_201_CREATED)
+        else:
+            return super().post(request, *args, **kwargs)

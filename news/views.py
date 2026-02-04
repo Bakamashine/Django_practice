@@ -16,6 +16,6 @@ def year(req: HttpRequest, year: int):
     return render(req, 'news/year.html', {"news": news, "year": year})
 
 
-class NewsViewSet(viewsets.ModelViewSet):
+class NewsViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = News.objects.all().order_by('-date')
     serializer_class = NewsSerializer

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'RegAuth.apps.RegauthConfig',
     "main.apps.MainConfig",
     "rest_framework",
+    "corsheaders",
     'django_vite',
     'django_cleanup',
     'django_seed',
@@ -53,9 +54,9 @@ INSTALLED_APPS = [
 ]
 
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
-    ],
+    # "DEFAULT_PERMISSION_CLASSES": [
+    #     "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
+    # ],
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ]
@@ -72,6 +73,7 @@ SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -82,6 +84,9 @@ MIDDLEWARE = [
 
 CSRF_TRUSTED_ORIGINS = ['https://*.serveo.net/']
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173"
+]
 
 
 ROOT_URLCONF = 'Borchimash.urls'
