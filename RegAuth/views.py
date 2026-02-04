@@ -16,7 +16,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.conf import settings
 from django.http import Http404
 from django.contrib.auth import login
-from rest_framework import generics, response, status
+from rest_framework import generics, response, status, viewsets, permissions
 from RegAuth.serializers import CustomAbstractUserSerializer
 from .models import CustomAbstractUser
 
@@ -145,3 +145,14 @@ class RegisterUserApi(generics.CreateAPIView):
             return response.Response(status=status.HTTP_201_CREATED)
         else:
             return super().post(request, *args, **kwargs)
+
+class GetUserApi(generics.ListAPIView):
+    # queryset  = 
+    # serializer_class = CustomAbstractUserSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    def get(self, request, *args, **kwargs):
+        user = request.user;
+        return response.Response({
+            "username": user.username,
+            "email": user.email
+        }, status=status.HTTP_200_OK)

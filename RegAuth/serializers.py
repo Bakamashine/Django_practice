@@ -6,3 +6,8 @@ class CustomAbstractUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomAbstractUser
         fields = ["username", "email", "password"]
+
+# class GetUserSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = CustomAbstractUser
+#         fields = ["username", "email"]
