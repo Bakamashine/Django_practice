@@ -5,7 +5,7 @@ from main.forms import FeedbackForm
 from main.models import Feedback, Forms
 from products.models import Category
 from django.contrib.auth.decorators import login_required
-from rest_framework import viewsets, mixins, generics, permissions
+from rest_framework import viewsets, mixins, generics, permissions, response, status
 from .serializers import FeedbackSerializer, FormSerializer
 
 
@@ -56,11 +56,15 @@ class FeedbackViewSet(generics.ListCreateAPIView):
     serializer_class = FeedbackSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+    def post(self, request, *args, **kwargs):
+        feedback = self.serializer_class(data=request.data)
+        if feedback.is_valid():
+            newFeedback = Feedback.objects.create(
+                user=request.user,
+                text=feedback.data["text"],
+                phone=feedback.data["phone"],
+            )
 
-    # def get(self, request, *args, **kwargs):
-    #     return super().get(request, *args, **kwargs)
-
-    # def post(self, request, *args, **kwargs):
-    #     return super().post(request, *args, **kwargs)
+            newFeedback.save()
+            return response.Response(status=status.HTTP_201_CREATED)
+        return super().post(request, *args, **kwargs)

@@ -1,8 +1,10 @@
 from rest_framework import serializers
+from main.validators import phone_validator
 
 from main.models import *
 
 class FeedbackSerializer(serializers.ModelSerializer):
+    phone = serializers.CharField(validators=[phone_validator])
     class Meta:
         model = Feedback
         fields = ["id", "user", "text", "phone"]

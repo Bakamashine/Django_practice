@@ -41,7 +41,7 @@ urlpatterns = [
     path("products/", include("products.urls")),
     path("news/", include("news.urls")),
     path("api/", include(router.urls)),
-    path("api/feedback/", FeedbackViewSet.as_view()),
+    path("api/feedback", FeedbackViewSet.as_view()),
     path("api/register", RegisterUserApi.as_view()),
     path("summernote/", include("django_summernote.urls")),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
