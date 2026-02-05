@@ -24,27 +24,45 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 from rest_framework import routers
-from news.views import NewsViewSet
-from main.views import FeedbackViewSet, FormViewSet
+from news.views import NewsViewApi, OneNewsViewApi, YearNewsViewApi
+from main.views import FeedbackViewApi, FormViewSet
 from RegAuth.views import RegisterUserApi, GetUserApi
 
 router = routers.DefaultRouter()
-router.register(r'news', NewsViewSet)   
-# router.register(r'feedback', FeedbackViewSet)
+# router.register(r'news', NewsViewApi)   
 router.register(r"form", FormViewSet)
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+
+    # App routes
     path("", include("main.urls")),
     path("", include("RegAuth.urls")),
     path("products/", include("products.urls")),
     path("news/", include("news.urls")),
+
+    # DRF router
     path("api/", include(router.urls)),
-    path("api/feedback", FeedbackViewSet.as_view()),
-    path("api/register", RegisterUserApi.as_view()),
-    path("api/getuser", GetUserApi.as_view()),
-    path("summernote/", include("django_summernote.urls")),
-    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
+
+    # Custom API endpoints
+    path("api/feedback", FeedbackViewApi.as_view(), name="feedback"),
+    path("api/news/", NewsViewApi.as_view(), name="news-list"),
+    path("api/news/<int:id>/", OneNewsViewApi.as_view(), name="news-detail"),
+    path("api/news/years/<int:year>/", YearNewsViewApi.as_view(), name='news-years'),
+    path("api/register", RegisterUserApi.as_view(), name="register"),
+    path("api/getuser", GetUserApi.as_view(), name="get-user"),
+
+    # Auth
     path("api/token", TokenObtainPairView.as_view(), name="token_obtain_pair"),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path("api/token/refresh", TokenRefreshView.as_view(), name="token_refresh"),
+
+    # DRF login
+    path("api-auth", include("rest_framework.urls", namespace="rest_framework")),
+
+    # Summernote
+    path("summernote", include("django_summernote.urls")),
+]
+
+# Media
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

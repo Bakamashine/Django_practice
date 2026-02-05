@@ -1,7 +1,7 @@
 from django.urls import path
 from news.views import detail, year
 from rest_framework import routers
-from .views import NewsViewSet
+from .views import NewsViewApi
 
 
 urlpatterns = [

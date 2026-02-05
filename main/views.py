@@ -51,7 +51,7 @@ class FormViewSet(viewsets.ModelViewSet):
     serializer_class = FormSerializer
 
 
-class FeedbackViewSet(generics.ListCreateAPIView):
+class FeedbackViewApi(generics.ListCreateAPIView):
     queryset = Feedback.objects.all().order_by("-date")
     serializer_class = FeedbackSerializer
     permission_classes = [permissions.IsAuthenticated]
