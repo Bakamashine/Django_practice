@@ -46,7 +46,7 @@ def blanks(req: HttpRequest):
     return render(req, "main/blanks.html")
 
 
-class FormViewSet(viewsets.ModelViewSet):
+class FormViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Forms.objects.all()
     serializer_class = FormSerializer
 

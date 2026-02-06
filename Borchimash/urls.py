@@ -49,7 +49,7 @@ urlpatterns = [
     path("api/feedback", FeedbackViewApi.as_view(), name="feedback"),
     path("api/news/", NewsViewApi.as_view(), name="news-list"),
     path("api/news/<int:id>/", OneNewsViewApi.as_view(), name="news-detail"),
-    path("api/news/years/<int:year>/", YearNewsViewApi.as_view(), name='news-years'),
+    path("api/news/year/<int:year>/", YearNewsViewApi.as_view(), name='news-years'),
     path("api/register", RegisterUserApi.as_view(), name="register"),
     path("api/getuser", GetUserApi.as_view(), name="get-user"),
 
