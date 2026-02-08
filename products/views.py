@@ -6,6 +6,8 @@ from products.models import Product, Category
 from django.core.paginator import Paginator
 from main.paginator import new_paginator
 from django.views import View
+from rest_framework import generics
+from products.serializers import *
 
 FILES_ROOT = os.path.join(STATIC_URL, "models")
 
@@ -47,3 +49,22 @@ class ProductDetail(View):
 
 class ProductDetail3D(ProductDetail):
     template_name = "products/products/3d.html"
+
+class CategoryDetailApi(generics.RetrieveAPIView):
+    serializer_class = CategorySerializersOne
+    queryset = Category.objects.all()
+    lookup_field = "id"
+
+class CategoryApi(generics.ListAPIView):
+    serializer_class = CategorySerializers
+    queryset = Category.objects.all()
+
+class ProductApi(generics.ListAPIView):
+    serializer_class = ProductSerializers
+    queryset = Product.objects.all()
+    lookup_field = "category_id"
+
+class ProductDetailApi(generics.RetrieveAPIView):
+    serializer_class = ProductSerializersOne
+    queryset = Product.objects.all()
+    lookup_field = "id"

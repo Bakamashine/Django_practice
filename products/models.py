@@ -26,7 +26,7 @@ class Product(models.Model):
         help_text="Описание", verbose_name="Описание"
     )
     category = models.ForeignKey(
-        Category, on_delete=models.CASCADE, verbose_name="Категория"
+        Category, on_delete=models.CASCADE, verbose_name="Категория", related_name="products"
     )
     img = models.ImageField(
         verbose_name="Фото товара", null=True, blank=True, upload_to="product/img"
