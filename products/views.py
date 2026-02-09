@@ -68,3 +68,6 @@ class ProductDetailApi(generics.RetrieveAPIView):
     serializer_class = ProductSerializersOne
     queryset = Product.objects.all()
     lookup_field = "id"
+
+class OnlyFileProductApi(ProductDetailApi):
+    serializer_class = OnlyFileProductSerializers

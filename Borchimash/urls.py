@@ -44,6 +44,7 @@ urlpatterns = [
     # Product
     path("api/category/product/<int:category_id>/", ProductApi.as_view(), name="product-list-by-category"),
     path("api/product/<int:id>", ProductDetailApi.as_view(), name="product-detail"),
+    path("api/product/file_only/<int:id>", OnlyFileProductApi.as_view(), name="product-only-file"),
 
     # Auth view api
     path("api/register", RegisterUserApi.as_view(), name="register"),

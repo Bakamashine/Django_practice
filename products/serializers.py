@@ -23,3 +23,8 @@ class CategorySerializersOne(serializers.ModelSerializer):
         model = Category
         # fields = ['id','name', 'description', 'img', 'products']
         fields = "__all__"
+
+class OnlyFileProductSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ["file"]

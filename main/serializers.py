@@ -15,3 +15,8 @@ class FormSerializer(serializers.ModelSerializer):
     class Meta:
         model = Forms
         fields = "__all__"
+
+class OnlyFileFormSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Forms
+        fields = ["file"]

@@ -6,7 +6,7 @@ from main.models import Feedback, Forms
 from products.models import Category
 from django.contrib.auth.decorators import login_required
 from rest_framework import viewsets, mixins, generics, permissions, response, status
-from .serializers import FeedbackSerializer, FormSerializer
+from .serializers import FeedbackSerializer, FormSerializer, OnlyFileFormSerializer
 
 
 def index(req):
