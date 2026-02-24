@@ -1,3 +1,3 @@
 function route(value) {
-    document.location.href=value;
+    document.location.href = value;
 }

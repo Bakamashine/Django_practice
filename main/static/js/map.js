@@ -1,7 +1,7 @@
 // 51.354762, 42.099474 Координаты Борхиммаша
 let borchimash = [51.354762, 42.099474]
 ymaps.ready(function () {
-    var myMap = new ymaps.Map('map', {
+    const myMap = new ymaps.Map('map', {
             center: borchimash,
             zoom: 18
         }, {
@@ -27,7 +27,7 @@ ymaps.ready(function () {
             // Смещение левого верхнего угла иконки относительно
             // её "ножки" (точки привязки).
             // iconImageOffset: [-5, -38]
-            
+
         }),
 
         myPlacemarkWithContent = new ymaps.Placemark(borchimash, {
@@ -53,5 +53,5 @@ ymaps.ready(function () {
 
     myMap.geoObjects
         .add(myPlacemark)
-        // .add(myPlacemarkWithContent);
+    // .add(myPlacemarkWithContent);
 });

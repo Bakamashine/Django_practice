@@ -1,5 +1,7 @@
 from rest_framework import serializers
+
 from RegAuth.models import CustomAbstractUser
+
 
 class CustomAbstractUserSerializer(serializers.ModelSerializer):
     # password = serializers.CharField(validators=[])

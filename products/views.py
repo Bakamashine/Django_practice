@@ -1,12 +1,12 @@
-from django.shortcuts import render
 import os
-from Borchimash.settings import BASE_DIR, STATIC_URL
+
 from django.http import HttpRequest
-from products.models import Product, Category
-from django.core.paginator import Paginator
-from main.paginator import new_paginator
+from django.shortcuts import render
 from django.views import View
 from rest_framework import generics
+
+from Borchimash.settings import STATIC_URL
+from main.paginator import new_paginator
 from products.serializers import *
 
 FILES_ROOT = os.path.join(STATIC_URL, "models")
@@ -35,9 +35,10 @@ def product(req: HttpRequest, category: int):
         },
     )
 
+
 class ProductDetail(View):
     model = Product
-    template_name ="products/products/detail.html"
+    template_name = "products/products/detail.html"
 
     def dispatch(self, request, product: int, *args, **kwargs):
         if request.method == "GET":
@@ -47,27 +48,33 @@ class ProductDetail(View):
                 {"product": self.model.objects.get(pk=product)}
             )
 
+
 class ProductDetail3D(ProductDetail):
     template_name = "products/products/3d.html"
+
 
 class CategoryDetailApi(generics.RetrieveAPIView):
     serializer_class = CategorySerializersOne
     queryset = Category.objects.all()
     lookup_field = "id"
 
+
 class CategoryApi(generics.ListAPIView):
     serializer_class = CategorySerializers
     queryset = Category.objects.all()
+
 
 class ProductApi(generics.ListAPIView):
     serializer_class = ProductSerializers
     queryset = Product.objects.all()
     lookup_field = "category_id"
 
+
 class ProductDetailApi(generics.RetrieveAPIView):
     serializer_class = ProductSerializersOne
     queryset = Product.objects.all()
     lookup_field = "id"
+
 
 class OnlyFileProductApi(ProductDetailApi):
     serializer_class = OnlyFileProductSerializers

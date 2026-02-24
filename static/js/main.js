@@ -1,6 +1,7 @@
 import * as THREE from "three";
-import { Curves, OrbitControls } from "three/examples/jsm/Addons.js";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import {OrbitControls} from "three/examples/jsm/Addons.js";
+import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js";
+
 const path = window.PRODUCT_FILE_URL;
 console.log(path)
 const scene = new THREE.Scene();
@@ -10,15 +11,15 @@ const camera = new THREE.PerspectiveCamera(
     0.1,
     1000
 );
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+const renderer = new THREE.WebGLRenderer({antialias: true});
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 // camera.position.z = 5;
 camera.position.set(453, 124, 228);
-const controles = new OrbitControls(camera, renderer.domElement);
-controles.enableDamping = true;
-controles.dampingFactor = 0.25;
-controles.enableZoom = true;
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.25;
+controls.enableZoom = true;
 const loader = new GLTFLoader();
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Мягкий свет
 const directionalLight = new THREE.DirectionalLight(0xffffff, 1); // Направленный свет
@@ -42,6 +43,7 @@ loader.load(
         console.error("Ошибка загрузки модели:", error);
     }
 );
+
 function animate() {
     // console.log(camera.position)
     requestAnimationFrame(animate);

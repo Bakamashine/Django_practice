@@ -1,21 +1,21 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from django.conf.urls.static import static
-from django.conf import settings
+from rest_framework import routers
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
-from rest_framework import routers
-from news.views import NewsViewApi, OneNewsViewApi, YearNewsViewApi
-from main.views import FeedbackViewApi, FormViewSet
+
 from RegAuth.views import RegisterUserApi, GetUserApi
+from main.views import FeedbackViewApi, FormViewSet
+from news.views import NewsViewApi, OneNewsViewApi, YearNewsViewApi
 from products.views import *
 
 router = routers.DefaultRouter()
 # router.register(r'news', NewsViewApi)   
 router.register(r"form", FormViewSet)
-
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -31,7 +31,7 @@ urlpatterns = [
 
     # Custom API endpoints
     path("api/feedback", FeedbackViewApi.as_view(), name="feedback"),
-    
+
     # News
     path("api/news/", NewsViewApi.as_view(), name="news-list"),
     path("api/news/<int:id>/", OneNewsViewApi.as_view(), name="news-detail"),

@@ -2,7 +2,7 @@ from django.core.paginator import Paginator
 from django.http import HttpRequest
 
 
-def new_paginator(req: HttpRequest, model, count = 6):
+def new_paginator(req: HttpRequest, model, count=6):
     paginator = Paginator(model, count)
     if "page" in req.GET:
         page_num = req.GET["page"]

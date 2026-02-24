@@ -1,7 +1,7 @@
-from django.shortcuts import redirect
 from functools import wraps
-from django.conf import settings
 
+from django.conf import settings
+from django.shortcuts import redirect
 
 
 # Перенаправление на главную страницу если пользователь авторизирован
@@ -12,4 +12,5 @@ def anon_required(view_func):
         if (request.user.is_authenticated):
             return redirect(settings.LOGIN_REDIRECT_URL)
         return view_func(request, *args, **kwargs)
+
     return wrapper

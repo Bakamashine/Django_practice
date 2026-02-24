@@ -1,6 +1,7 @@
 from django.contrib import admin
-from news.models import News
 from django_summernote.admin import SummernoteModelAdmin
+
+from news.models import News
 
 
 @admin.register(News)

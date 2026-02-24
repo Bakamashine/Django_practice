@@ -1,14 +1,16 @@
-from django.contrib import admin
-from django.forms import ModelForm
-from django.http import HttpRequest
-from products.models import Product, Category
-import aspose.threed as a3d
+import logging
 import os
+import tempfile
+
+import aspose.threed as a3d
+from django.contrib import admin
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
-import tempfile
-import logging
+from django.forms import ModelForm
+from django.http import HttpRequest
 from django_summernote.admin import SummernoteModelAdmin
+
+from products.models import Product, Category
 
 
 @admin.register(Category)
@@ -31,7 +33,7 @@ class AdminProducts(SummernoteModelAdmin):
     search_fields = ['title']
 
     def save_model(
-        self, request: HttpRequest, obj, form: ModelForm, change: bool
+            self, request: HttpRequest, obj, form: ModelForm, change: bool
     ) -> None:
         super().save_model(request, obj, form, change)
         if "file" in request.FILES:

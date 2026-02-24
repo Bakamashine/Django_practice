@@ -1,6 +1,7 @@
 from django import forms
-from main.validators import phone_validator
+
 from RegAuth.forms import INPUT_STYLES
+from main.validators import phone_validator
 
 
 class FeedbackForm(forms.Form):

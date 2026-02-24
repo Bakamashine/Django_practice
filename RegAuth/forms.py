@@ -1,16 +1,15 @@
 """Стандартные формы для регистрации или авторизации пользователя"""
 
+from django import forms
 from django.contrib.auth.forms import (
     UserCreationForm,
     AuthenticationForm,
     UsernameField,
 )
-from django import forms
-from .models import CustomAbstractUser
-
 # """Перевод ошибок валидации"""
 from django.utils.translation import gettext_lazy as _
 
+from .models import CustomAbstractUser
 
 # INPUT_STYLES = "mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500"
 # Стили для полей ввода
@@ -64,7 +63,6 @@ class AcceptEmail(forms.Form):
             attrs={"autofocus": True, "class": INPUT_STYLES}
         )
     )
-
 
     def clean_code(self):
         """Валидация токена"""

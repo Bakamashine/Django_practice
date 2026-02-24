@@ -2,7 +2,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
+<head>
     <title>{{ product.name }} 3D</title>
     <meta charset="utf-8">
     <meta name="viewport"
@@ -10,13 +10,13 @@
     <link type="text/css" rel="stylesheet" href="{% static "css/two.css" %}">
     {% vite_hmr_client %}
 
-  </head>
-  <body>
+</head>
+<body>
 
-    <script type="module">
-      window.PRODUCT_FILE_URL = "{{ product.file.url|escapejs }}";
-    </script>
-    {% vite_asset 'static/js/main.js' %}
-  </body>
-  
+<script type="module">
+    window.PRODUCT_FILE_URL = "{{ product.file.url|escapejs }}";
+</script>
+{% vite_asset 'static/js/main.js' %}
+</body>
+
 </html>

@@ -1,7 +1,7 @@
-from django.db import models
-from RegAuth.models import CustomAbstractUser
 from django.core.validators import FileExtensionValidator
-from datetime import datetime
+from django.db import models
+
+from RegAuth.models import CustomAbstractUser
 
 
 class Feedback(models.Model):

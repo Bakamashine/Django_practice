@@ -1,6 +1,8 @@
-from django.db import models
-from products.validators import file_validator, VALID_EXTENS
 from django.core.validators import FileExtensionValidator
+from django.db import models
+
+from products.validators import VALID_EXTENS
+
 
 class Category(models.Model):
     name = models.CharField(verbose_name="Название категории", max_length=30)
@@ -35,7 +37,7 @@ class Product(models.Model):
         help_text=f"Модель в 3Д в форматах {VALID_EXTENS} ",
         validators=[
             FileExtensionValidator(formats, f"Файл должен быть с расширением {formats}")
-            ],
+        ],
         upload_to="product/models",
         verbose_name="Выберите 3Д модель",
         blank=True,

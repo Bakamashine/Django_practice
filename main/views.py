@@ -1,12 +1,13 @@
-from django.shortcuts import render, redirect
-from news.models import News
+from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest
+from django.shortcuts import render, redirect
+from rest_framework import viewsets, generics, permissions, response, status
+
 from main.forms import FeedbackForm
 from main.models import Feedback, Forms
+from news.models import News
 from products.models import Category
-from django.contrib.auth.decorators import login_required
-from rest_framework import viewsets, mixins, generics, permissions, response, status
-from .serializers import FeedbackSerializer, FormSerializer, OnlyFileFormSerializer
+from .serializers import FeedbackSerializer, FormSerializer
 
 
 def index(req):
@@ -23,8 +24,8 @@ def contacts(req):
     return render(req, "main/contacts.html")
 
 
-def test(req):
-    return render(req, "main/test.html")
+# def test(req):
+#     return render(req, "main/test.html")
 
 
 @login_required
@@ -40,6 +41,7 @@ def feedback(req: HttpRequest):
             return redirect("main")
         else:
             return render(req, "main/feedback.html", {"form": form})
+    return None
 
 
 def blanks(req: HttpRequest):
@@ -57,14 +59,14 @@ class FeedbackViewApi(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
-        feedback = self.serializer_class(data=request.data)
-        if feedback.is_valid():
-            newFeedback = Feedback.objects.create(
+        feedback_ser = self.serializer_class(data=request.data)
+        if feedback_ser.is_valid():
+            new_feedback = Feedback.objects.create(
                 user=request.user,
-                text=feedback.data["text"],
-                phone=feedback.data["phone"],
+                text=feedback_ser.data["text"],
+                phone=feedback_ser.data["phone"],
             )
 
-            newFeedback.save()
+            new_feedback.save()
             return response.Response(status=status.HTTP_201_CREATED)
         return super().post(request, *args, **kwargs)
